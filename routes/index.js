@@ -10,6 +10,6 @@ router.get('/register', indexController.register);
 router.get('/search', indexController.search);
 router.get('/profile', indexController.profile);
 router.get('/edit-profile', indexController.editProfile);
-
+router.get('/add-product', indexController.addProduct);
 
 module.exports = router;

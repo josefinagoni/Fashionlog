@@ -19,8 +19,10 @@ const controlador = {
     },
     editProfile: (req, res) => {
         res.render('editProfile', {})
+    },
+    addProduct: (req, res) => {
+        res.render('addProduct', {})
     }
-
 };
 
 module.exports = controlador;
