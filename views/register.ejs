@@ -15,34 +15,31 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
 
-			<form class="registrarse" action="" method="POST">
+			<form class="container-form-register" action="" method="POST">
+				<h2 class="titulo">Crea tu cuenta aquí</h2>
 				<p>
-					<label for="nombre"> Nombre Completo: </label>
-					<input type="text" name="nombre" id="nombre" placeholder="Ingrese aquí su nombre"> 
+					
+					<input type="text" name="nombre" id="nombre" class="nombre"placeholder="nombre completo"> 
 				</p>
 				<p>
-					<label for="mail"> Correo Electronico: </label>
-					<input type="email" name="mail" id="mail" placeholder="Ingrese aquí su dirección de correo"> 
+					
+					<input type="email" name="mail" id="mail" class="email"placeholder="EMAIL" required> 
 				</p>
 				<p>
-					<label for="fechanac"> Fecha de Naciimiento: </label>
-					<input type="date" name="fechanac" id="fechanac" > 
+					
+					<input type="date" name="fechanac" id="fechanac" class="fecha" placeholder="Fecha de nacimiento" > 
 				</p>
 				<p>
-					<label for="contraseña"> Contraseña: </label>
-					<input type="password" name="contraseña" id="contraseña" pattern=".{6,}" placeholder="Minimo 6 caracteres"> 
+					
+					<input type="password" name="contraseña" id="contraseña" class="pwd" pattern=".{6,}" placeholder="Contraseña" required> 
 				</p>
-				<p>
-                    <input type="checkbox" name="acepto"> He leído y acepto los términos y condiciones de uso 
+				<p class="checkbox">
+                    <input type="checkbox" name="acepto"  required> He leído y acepto los términos y condiciones de uso 
                 </p> 
-				<p><input type="submit" value="Submit"></p>
+				<br/>
+				<br/>
+				<p><input class="submit" type="submit" value="ENVIAR"></p>	
 				
 			</form>
 
