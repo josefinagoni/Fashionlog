@@ -51,7 +51,7 @@ figure {
 }
 
 img {
-  width: 100%;
+  width: 80%;
 }
 
 input,
@@ -154,7 +154,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(../public/images/vestidor-banner.jpg);
+  background-image: url(/images/vestidor-banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
