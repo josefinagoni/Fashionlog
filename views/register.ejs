@@ -22,6 +22,30 @@
 			////////////////
 			</h2>
 
+			<form class="registrarse" action="" method="POST">
+				<p>
+					<label for="nombre"> Nombre Completo: </label>
+					<input type="text" name="nombre" id="nombre" placeholder="Ingrese aquí su nombre"> 
+				</p>
+				<p>
+					<label for="mail"> Correo Electronico: </label>
+					<input type="email" name="mail" id="mal" placeholder="Ingrese aquí su dirección de correo"> 
+				</p>
+				<p>
+					<label for="fechanac"> Fecha de Naciimiento: </label>
+					<input type="date" name="fechanac" id="fechanac" > 
+				</p>
+				<p>
+					<label for="contraseña"> Contraseña: </label>
+					<input type="password" name="contraseña" id="contraseña" pattern=".{6,}" placeholder="Minimo 6 caracteres"> 
+				</p>
+				<p>
+                    <input type="checkbox" name="acepto"> He leído y acepto los términos y condiciones de uso 
+                </p> 
+				<p><input type="submit" value="Submit"></p>
+				
+			</form>
+
 
 	<!-- footer -->
 <%- include('../views/partials/footer') %>
