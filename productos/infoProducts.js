@@ -2,7 +2,7 @@ let listadoProducts = {
     lista: [
         {
             nombre: "Campera Mango",
-            descripcion: "Campera de Jean color Azul",
+            descripcion: "Campera de Jean color Azul con tachas",
             estado: "Usada",
             cover:"/images/producto1.jpeg"
         },
@@ -14,7 +14,7 @@ let listadoProducts = {
         },
         {
             nombre:"Pantalon Zara",
-            descripcion: "Pantalon de cuero original chupin",
+            descripcion: "Pantalon de cuero original con abertura al final",
             estado: "Casi nuevo",
             cover:"images/producto3.jpeg"
         },
@@ -27,7 +27,7 @@ let listadoProducts = {
         {
        
             nombre: "Remera Forever XXI",
-            descripcion: "Remera negra basica",
+            descripcion: "Remera negra trasnparente con detalles de piedras",
             estado: "Nueva con etiqueta",
             cover: "images/producto5.jpeg"
         },
@@ -38,14 +38,14 @@ let listadoProducts = {
             cover:"images/producto6.jpeg"
         },
         {
-            nombre: "Joggin Rapsodia",
-            descripcion: "Joggin gris con bordes blancos",
+            nombre: "Joggin Uniqlo",
+            descripcion: "Joggin verde militar basico",
             estado: "Casi nuevo",
             cover: "/images/producto7.jpeg"
         },
         {
             nombre: "Swater Bershka",
-            descripcion: "Sweater azul con rayas rojas",
+            descripcion: "Sweater gris corto con peludito",
             estado: "Usado",
             cover: "/images/producto8.jpeg"
         },
