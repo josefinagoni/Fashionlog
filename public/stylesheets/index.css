@@ -260,7 +260,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: var(--pink);
   padding: 20px 0;
   margin-top: 80px;
 }
