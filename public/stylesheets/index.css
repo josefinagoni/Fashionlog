@@ -190,6 +190,13 @@ hr {
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+  
+  border-top: 1px solid var(--light-gray);
+}
+img.product-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product-box_data {
