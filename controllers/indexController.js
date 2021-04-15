@@ -1,12 +1,14 @@
-//const productos = require('../productos/infoProduct');
+const productos = require('../productos/infoProducts');
 
 
 const controlador = {
     index: (req, res) => {
        // let respuesta = []
-       // for (let i = 0; i < productos.length; i++) {
-       //     const element = array[index];
-        //}
+       for (let i = 0; i < productos.length; i++) {
+           const element = productos[i];
+           console.log(element[i].lista.nombre) 
+
+        }
         res.render('index', {})
     },
     product: (req, res) => {
