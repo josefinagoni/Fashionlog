@@ -5,12 +5,14 @@ let listadoProducts = {
             descripcion: "Campera de Jean color Azul con tachas",
             estado: "Usada",
             cover:"/images/producto1.jpeg"
+            
         },
         {
             nombre: "Campera Rapsodia",
             descripcion: "Campera de cuero negra con mangas tres cuartos",
             estado: "Usada",
             cover:"images/producto2.jpeg"
+            
         },
         {
             nombre:"Pantalon Zara",
