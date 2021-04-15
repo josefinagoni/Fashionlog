@@ -54,6 +54,7 @@ figure {
 
 img {
   width: 80%;
+  align-content: center;
 }
 
 input,
@@ -212,6 +213,7 @@ img.product-image{
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+
 }
 
 
