@@ -54,6 +54,8 @@ figure {
 
 img {
   width: 80%;
+  display: block;
+  margin: auto;
 }
 
 input,
@@ -207,7 +209,7 @@ hr {
 }
 
 
-img.product-image{
+img.product-box_image{
   display: block;
   margin-left: auto;
   margin-right: auto;
