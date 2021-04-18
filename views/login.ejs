@@ -2,7 +2,7 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
-<body>
+<body class="login-background">
 	<!-- Header -->
 <%- include('../views/partials/header') %>
 
@@ -14,7 +14,7 @@
 			
 			<!-- Show the "ultimos" products -->
 			<div class="container-login">
-			<div class="login-img"> <img src="/images/login.jpg" alt="" class="img-login"></div>
+			
 			<form class="container-form-login" action="" method="post">
 				<h2 class="titulo">login</h2>
 			  <p>
@@ -29,9 +29,17 @@
 				<br/>
 				<br/>
 				<p><input class="submit" type="submit" value="ENVIAR"></p>	
-
-				
 			</form>
+			<div class="container-login-extra">
+				<ul class="login-grid">
+					<li class="login-extra"> Sos nueva?</li>
+				
+					<li class="login-extra"><a href="http://localhost:3000/index/register"> Registrate aquí </a></li>
+				</ul>
+			</div>
+
+		
+
 		</div>
 			
 			
