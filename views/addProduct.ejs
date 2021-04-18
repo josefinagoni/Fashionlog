@@ -14,12 +14,32 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<form class="container-form-edit" action="" method="POST">
+				<h2 class="titulo">AGREGA UN PRODUCTO</h2>
+				<p>
+					
+					<input type="text" name="nombre" id="nombre" class="nombre"placeholder="nombre del producto"> 
+				</p>
+				<p>
+					
+					<input type="text" name="descripcion" id="descripcion" class="descripcion" placeholder="Descripción"> 
+				</p>
+				<p>
+					
+					<input type="date" name="fechanac" id="fechanac" class="fecha" placeholder="Fecha de publicacion" > 
+				</p>
+				
+				<p>
+					
+					<input type="text" name="image" id="image" class="image"  placeholder="foto del producto" required> 
+				</p>
+				
+				
+				<br/>
+				<br/>
+				<p><input class="submit" type="submit" value="Agregar producto a mi catalogo"></p>	
+				
+			</form>
 
 
 <!-- footer -->
