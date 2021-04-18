@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --black: #524a4a;
+  --black: #000000;
   --pink: #b358a3;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -180,6 +180,18 @@ hr {
 .products-wrapper {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.container-login{
+  display: grid;
+  grid-template-columns: 55% 45%;
+  justify-content: space-around;
+
+}
+.img-login{
+  display: block;
+  width: 90%;
+  margin-left: 68px;
 }
 
 .products-title {
@@ -546,7 +558,7 @@ form.registrarse input[type="submit"]:hover{
 
 /*====== Probando CSS forms ======*/
 
-.container-form{
+.container-form, .container-form-login{
   top:200px;
   left:35%;
   display:block;
@@ -559,6 +571,10 @@ form.registrarse input[type="submit"]:hover{
   border-radius:5px;
   overflow:hidden;
   z-index:1;
+}
+.container-form-login{
+  margin-top: 95px;
+  height:380px;
 }
 
 .container-form-register{
@@ -598,7 +614,7 @@ h2.titulo{
   color:#414141;
 }
 
-input.email, input.pwd, input.submit, input.nombre, input.fecha{
+input.email, input.pwd, input.submit, input.nombre, input.fecha , input.image , input.descripcion{
   display:block;
   height:50px;
   width:90%;
@@ -610,7 +626,7 @@ input.email, input.pwd, input.submit, input.nombre, input.fecha{
 
 
 .email,
-.pwd, .nombre, .fecha {
+.pwd, .nombre, .fecha , .image , .descripcion{
   position:relative;
   z-index:1;
   border-bottom:1px solid rgba(0,0,0,.1);
