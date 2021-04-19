@@ -10,7 +10,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Campera Zara</h2> 
+			<h2 class="products-title"> <%= producto.nombre%></h2> 
 			<p class="product-detail-description">
 				<a href="http://localhost:3000/index/add-product">Editar</a>
 			</p>
@@ -18,11 +18,9 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/producto1.jpeg" alt="" class="product-detail-img">s
+					<img src="<%= producto.cover%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Campera de Jean color Azul con cadenas colgando adheridas a las costuras de la parte delantera y de la manga. 
-						Botones color plateado y detalle de costuras en la parte baja de la campera. Es original, de la mejor calidad y resistencia 
-						con muy poco uso. Buena prenda para acompañar cualquier outfit. </p>
+						<%= producto.descripcion%> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">

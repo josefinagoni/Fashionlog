@@ -3,16 +3,18 @@ const productos = require('../productos/infoProducts');
 
 const controlador = {
     index: (req, res) => {
-       // let respuesta = []
-       for (let i = 0; i < productos.length; i++) {
-           const element = productos[i];
-           console.log(element[i].lista.nombre) 
-
-        }
-        res.render('index', {})
+        
+        res.render('index', {productos: productos.lista})
     },
     product: (req, res) => {
-        res.render('product', {})
+        let id = req.params.id
+        for (let index = 0; index < productos.lista.length; index++) {
+            const element = productos.lista[index];
+            if (element.id== id) {
+                res.render('product', {producto: element})
+            }
+        }
+        
     },
     login: (req, res) => {
         res.render('login', {})

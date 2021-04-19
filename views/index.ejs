@@ -22,8 +22,30 @@
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
 			</div>
+		
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
+			<% for (let index = 0; index < 4; index++) { %>
+				<% const element = productos[index] ; %>
+				
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/index/product/<%=element.id%>">
+							<figure class="product-box_image">
+								<img  src=" <%= element.cover %>" alt="">
+							</figure>
+							<article class="product-box_data">
+								<h2> <%= element.nombre %> </h2>
+								<p><%= element.descripcion %></p>
+								<p><%= element.estado %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }%> 
+
+			
+			<!-- <div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="http://localhost:3000/index/product">
 						<figure class="product-box_image">
@@ -82,7 +104,7 @@
 						</article>
 					</a>
 				</section>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- /Novedades -->
@@ -92,9 +114,29 @@
 			<div class="col-12">
 				<h2 class="products-title">Más comentados</h2>
 			</div>
+			<% for (let index = 4; index < 8; index++) { %>
+				<% const element = productos[index] ; %>
+				
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/index/product/<%=element.id%>">
+							<figure class="product-box_image">
+								<img  src=" <%= element.cover %>" alt="">
+							</figure>
+							<article class="product-box_data">
+								<h2> <%= element.nombre %> </h2>
+								<p><%= element.descripcion %></p>
+								<p><%= element.estado %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }%> 
+
 			<!-- Show the "ultimos" products -->
 			
-			<div class="col-12 col-sm-6 col-lg-3">
+			<!-- <div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="http://localhost:3000/index/product">
 						<figure class="product-box_image">
@@ -153,7 +195,7 @@
 						</article>
 					</a>
 				</section>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- /Más comentados -->
