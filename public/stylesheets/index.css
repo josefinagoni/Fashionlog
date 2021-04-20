@@ -1,6 +1,9 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
 
 /*====== Variables ======*/
 :root {
@@ -10,7 +13,9 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Open Sans', sans-serif;
+  --title-font-family: 'Roboto', sans-serif;
+  --base-font-family: 'Poppins', sans-serif;
+  --fashiolog-font-family: 'Open Sans', sans-serif;
   --white: #ffffff;
   --dark-grey: #363636;
 }
@@ -34,6 +39,10 @@ body {
   font-weight: 300;
   background-color: var(--light-gray);
   
+}
+
+header{
+font-family: var(--title-font-family)
 }
 
 ul,
@@ -125,12 +134,14 @@ hr {
   color: var(--white);
 }
 
-.fa , .fas{
+.fa , .fas, .fa-fas-cirle{
   font-size: 20px;
   font-weight: 300px;
   display: block;
+  
 }
-.titulo{font-weight: bolder;
+.titulo{
+  font-weight: bolder;
   font-family: var(--base-font-family);
   font-weight: 300;
   color: var(--pink);
@@ -230,6 +241,8 @@ hr {
 
 .main-title{
   margin-left: 20px;
+  font-family: var(--fashiolog-font-family);
+  
 }
 .fa-user-circle{
   display: block;
