@@ -33,6 +33,10 @@ const controlador = {
     },
     addProduct: (req, res) => {
         res.render('addProduct', {})
+    },
+    indexLog: (req, res) => {
+        
+        res.render('indexLog', {productos: productos.lista})
     }
 };
 

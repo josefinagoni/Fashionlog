@@ -80,6 +80,7 @@ hr {
 .main-header_credit-link {
   display: block;
   color: var(--pink);
+  
  
 }
 
@@ -159,7 +160,7 @@ hr {
 }
 
 .main-navbar {
-  margin-top: 5px;
+  margin-top: 10px;
   display: none;
 }
 
@@ -185,8 +186,13 @@ hr {
 .right-navbar a {
   display: block;
   padding: 5px 0;
-  border-bottom: solid 1px var(--gray);
+  border-bottom: solid 1px var(--light-gray);
 
+}
+.right-logueado{
+  display: grid;
+  grid-template-columns: 30% 30% 35%;
+  justify-content: space-evenly;
 }
 .left-navbar{
   margin-left: 40px;
@@ -214,7 +220,7 @@ hr {
 .container-header{
   margin-left: 30px;
   margin-right: 30px;
-  height: 170px;
+  height: 130px;
   margin-top: 20px;
 }
 
@@ -222,6 +228,12 @@ hr {
   margin-left: 20px;
 }
 
+.main-title{
+  margin-left: 20px;
+}
+.fa-user-circle{
+  display: block;
+}
 
 /*====== Banner ======*/
 .banner {
@@ -388,6 +400,10 @@ img.product-box_image{
   padding: 15px 0;
 }
 
+.nombres-footer{
+  text-align: center;
+  font-size: small;
+}
 
 /*====== Product Detail ======*/
 .product-detail {
@@ -831,7 +847,7 @@ p.checkbox{
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: var(--light-gray);
   }
 
   .left-navbar li {
