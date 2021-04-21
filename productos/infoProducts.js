@@ -58,7 +58,20 @@ let listadoProducts = {
             estado: "Usado",
             cover: "/images/producto8.jpeg"
         },
-       
+        {
+            id: 9,
+            nombre: "Borcegos Prune",
+            descripcion: "Borcegos negros con tachas",
+            estado: "Usado",
+            cover: "/images/producto8.jpeg"
+        },
+        {
+            id: 10,
+            nombre: "Cartera",
+            descripcion: "Sweater gris corto con peludito",
+            estado: "Usado",
+            cover: "/images/producto8.jpeg"
+        },
     ]
 }
 

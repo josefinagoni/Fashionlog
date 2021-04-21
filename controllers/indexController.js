@@ -27,7 +27,7 @@ const controlador = {
     },
     profile: (req, res) => {
         res.render('profile', {productos: productos.lista})
-       
+        
     },
     editProfile: (req, res) => {
         res.render('editProfile', {})

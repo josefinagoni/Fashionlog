@@ -2,7 +2,7 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
-<body>
+<body class="add-product-background">
 	<!-- Header -->
 	<%- include('../views/partials/headerlog') %>
 	<!-- /Header -->
@@ -14,6 +14,7 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+			<div class="container-add">
 			<form class="container-form-edit" action="" method="POST">
 				<h2 class="titulo">AGREGA UN PRODUCTO</h2>
 				<p>
@@ -40,7 +41,7 @@
 				<p><input class="submit" type="submit" value="Agregar producto a mi catalogo"></p>	
 				
 			</form>
-
+		</div>
 
 <!-- footer -->
 <%- include('../views/partials/footer') %>

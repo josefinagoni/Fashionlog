@@ -66,6 +66,9 @@ figure {
 img {
   width: 80%;
   align-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input,
@@ -662,6 +665,14 @@ form.registrarse input[type="submit"]:hover{
   
 }
 .container-register{
+  margin-left:auto;
+  margin-right: auto;
+}
+.add-product-background{
+  background-image: url("/images/add-product.jpg");
+  background-size: cover;
+}
+.container-add{
   margin-left:auto;
   margin-right: auto;
 }
