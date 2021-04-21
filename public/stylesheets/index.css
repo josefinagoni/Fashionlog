@@ -260,8 +260,14 @@ hr {
 .main-title{
   margin-left: 20px;
   font-family: var(--fashiolog-font-family);
-  
+
 }
+
+.tlp{
+margin-left: 0%;
+font-family: 'Libre Baskerville', serif;
+}
+
 .fa-user-circle{
   display: block;
 }
