@@ -26,13 +26,18 @@ const controlador = {
         res.render('search', {})
     },
     profile: (req, res) => {
-        res.render('profile', {})
+        res.render('profile', {productos: productos.lista})
+       
     },
     editProfile: (req, res) => {
         res.render('editProfile', {})
     },
     addProduct: (req, res) => {
         res.render('addProduct', {})
+    },
+    indexLog: (req, res) => {
+        
+        res.render('indexLog', {productos: productos.lista})
     }
 };
 

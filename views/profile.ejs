@@ -43,20 +43,26 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
+			<% for (let index = 0; index < 8; index++) { %>
+				<% const element = productos[index] ; %>
+				
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
+					<a href="/index/product/<%=element.id%>">
 						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto1.jpeg" alt="campera jean celeste">
+							<img class="product-image" src=" <%= element.cover %>" alt="">
 						</figure>
 						<article class="product-box_data">
-							<h2>Campera Mango</h2>
-							<p>Campera de Jean color Azul</p>
+							<h2><%= element.nombre %></h2>
+							<p><%= element.descripcion %></p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
 				</section>
 			</div>
+			<% }%> 
+
+			<!--
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="http://localhost:3000/index/product">
@@ -159,8 +165,8 @@
 				</section>
 			</div>
 		</div>
-	</div>
-	<!-- /Mis productos -->
+	</div>-->
+	
 
 
 <!-- footer -->

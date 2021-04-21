@@ -11,6 +11,7 @@ router.get('/search', indexController.search);
 router.get('/profile', indexController.profile);
 router.get('/edit-profile', indexController.editProfile);
 router.get('/add-product', indexController.addProduct);
+router.get('/index-log', indexController.indexLog);
 
 module.exports = router;
 
