@@ -58,7 +58,20 @@ let listadoProducts = {
             estado: "Usado",
             cover: "/images/producto8.jpeg"
         },
-       
+        {
+            id: 9,
+            nombre: "Borcegos Prune",
+            descripcion: "Borcegos negros acharolados",
+            estado: "Usado",
+            cover: "/images/producto9.jpeg"
+        },
+        {
+            id: 10,
+            nombre: "Cartera",
+            descripcion: "Cartera color rosa con tonos claros",
+            estado: "Usado",
+            cover: "/images/producto10.jpeg"
+        },
     ]
 }
 
