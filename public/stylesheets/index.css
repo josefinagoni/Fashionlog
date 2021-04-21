@@ -105,6 +105,7 @@ hr {
   margin-top: 10px;
   text-align: center;
   color: var(--white);
+ 
 }
 
 .search-form {
@@ -885,7 +886,9 @@ p.checkbox{
   }
 
   .main-navbar,
+
   .left-navbar,
+
   .right-navbar {
     display: flex;
     flex-wrap: wrap;
@@ -904,11 +907,13 @@ p.checkbox{
   }
 
   .left-navbar li {
+    
     margin-right: 15px;
   }
 
   .right-navbar li {
     margin-left: 15px;
+    
   }
 
   .main-footer {
