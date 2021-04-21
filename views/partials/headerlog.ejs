@@ -4,7 +4,8 @@
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
                 <a href="http://localhost:3000/index/" class="main-header_home-link">
-                    <img class="logo" src="/images/log.jpg">
+                    <h1 class="main-title"> FashionLog</h1>
+						<!--<img class="logo" src="/images/log.jpg">-->
                 </a>
               
             </div>
@@ -30,21 +31,27 @@
 
         <nav class="main-navbar">
             <ul class="left-navbar cargar">
-                 <!-- <li><a href="http://localhost:3000/index/">Todos los productos</a></li>-->
-               
                 <li>  <div class="crea"> <a href="http://localhost:3000/index/add-product">Cargar productos</a> </div></li>
+                <li><a href="http://localhost:3000/index/index-log">Todos los productos</a></li>
+               
             </ul>
 
-            <ul class="right-navbar">
+            <ul class="right-navbar right-logueado">
                 <li class="nombre-usuario"><a href="http://localhost:3000/index/profile">
                     <i class="fas fa-user-circle"></i>
-                        Josefina Goñi 
                     </a>
                 </li>
+                <li><a href="http://localhost:3000/index/profile"> Josefina Goñi</a></li>
                 <li>
                     <div class="crea">
+                       <!--  <a href="http://localhost:3000/index" class="direc">
+                        <form>
+                        <input type="button" onclick="ConfirmCerrar()" value="Cerrar Sesión" />
+                        </form></a>-->
                        
-                        <p> <a href="http://localhost:3000/index">Cerrar sesion </a></p>
+                        <a href="http://localhost:3000/index">Cerrar sesion </a>
+
+
                      <!--  <form action="" method="post">
                         <button class="logout" type="submit">
                             Cerrar sesión <i class="fas fa-sign-in-alt"></i>

@@ -3,13 +3,18 @@ const productos = require('../productos/infoProducts');
 
 const controlador = {
     index: (req, res) => {
-       for (let i = 0; i < productos.length; i++) {
-           const element = array[index];
-        }
-        res.render('index', {})
+        
+        res.render('index', {productos: productos.lista})
     },
     product: (req, res) => {
-        res.render('product', {})
+        let id = req.params.id
+        for (let index = 0; index < productos.lista.length; index++) {
+            const element = productos.lista[index];
+            if (element.id== id) {
+                res.render('product', {producto: element})
+            }
+        }
+        
     },
     login: (req, res) => {
         res.render('login', {})
@@ -28,6 +33,10 @@ const controlador = {
     },
     addProduct: (req, res) => {
         res.render('addProduct', {})
+    },
+    indexLog: (req, res) => {
+        
+        res.render('indexLog', {productos: productos.lista})
     }
 };
 
