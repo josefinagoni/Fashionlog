@@ -148,7 +148,8 @@ hr {
   font-family: var(--base-font-family);
   font-weight: 300;
   color: var(--pink);
-  margin-left: 19px
+  margin-left: 19px;
+  margin-bottom: 5px;
 }
 .col-7{
   margin-top: 10px;
@@ -706,7 +707,7 @@ form.registrarse input[type="submit"]:hover{
   margin-right: auto;
   margin-bottom:30px;
   width:500px;
-  height:550px;
+  height:600px;
   background:rgb(235, 208, 229);
   border-radius:5px;
   overflow:hidden;
@@ -730,7 +731,7 @@ form.registrarse input[type="submit"]:hover{
 
 h2.titulo{
   padding-top:40px;
-  padding-bottom:40px;
+  padding-bottom:20px;
   padding-left: 10px;
   text-transform:uppercase;
   color:var(--dark-grey);
@@ -738,7 +739,7 @@ h2.titulo{
 
 }
 
-input.email, input.pwd, input.submit, input.nombre, input.fecha , input.image , input.descripcion{
+input.email, input.pwd, input.submit, input.nombre, input.fecha , input.image , input.descripcion, input.dni{
   display:block;
   height:50px;
   width:90%;
@@ -750,7 +751,7 @@ input.email, input.pwd, input.submit, input.nombre, input.fecha , input.image , 
 
 
 .email,
-.pwd, .nombre, .fecha , .image , .descripcion{
+.pwd, .nombre, .fecha , .image , .descripcion, .dni{
   position:relative;
   z-index:1;
   border-bottom:1px solid rgba(0,0,0,.1);
