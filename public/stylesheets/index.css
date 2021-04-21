@@ -802,7 +802,7 @@ p.checkbox{
   padding-left:20px;
   font-family: 'Open Sans', sans-serif;
   text-transform:uppercase;
-  color var(--black);
+  color: var(--black);
   font-size: large;
 }
 
