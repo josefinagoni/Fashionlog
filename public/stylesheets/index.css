@@ -56,6 +56,8 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: 'Libre Baskerville', serif;
+  margin-left: 0%;
 }
 
 figure {
@@ -64,11 +66,12 @@ figure {
 }
 
 img {
-  width: 80%;
+  width: 95%;
   align-content: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
 }
 
 input,
@@ -549,6 +552,10 @@ img.product-box_image{
   font-size: 1.7em;
 }
 
+.fecha-publicacion{
+  font-size: 0.5em;
+}
+
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;
@@ -815,11 +822,7 @@ p.checkbox{
   padding-left:20px;
   font-family: 'Open Sans', sans-serif;
   text-transform:uppercase;
-<<<<<<< HEAD
-  color var (--black);
-=======
   color: var(--black);
->>>>>>> d4294412baad67cd5938a29584bb66b7cf7dd673
   font-size: large;
 }
 
