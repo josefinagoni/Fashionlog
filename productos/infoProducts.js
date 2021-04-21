@@ -67,7 +67,7 @@ let listadoProducts = {
         },
         {
             id: 10,
-            nombre: "Cartera",
+            nombre: "Cartera Kralice",
             descripcion: "Cartera color rosa con tonos claros",
             estado: "Usado",
             cover: "/images/producto10.jpeg"

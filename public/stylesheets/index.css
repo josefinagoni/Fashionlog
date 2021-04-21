@@ -105,6 +105,7 @@ hr {
   margin-top: 10px;
   text-align: center;
   color: var(--white);
+ 
 }
 
 .search-form {
@@ -207,7 +208,7 @@ hr {
   display: block;
   padding: 5px 0;
   border-bottom: solid 1px var(--light-gray);
-
+  width: 10%;
 }
 .right-logueado{
   display: grid;
@@ -894,7 +895,9 @@ p.checkbox{
   }
 
   .main-navbar,
+
   .left-navbar,
+
   .right-navbar {
     display: flex;
     flex-wrap: wrap;
@@ -913,11 +916,13 @@ p.checkbox{
   }
 
   .left-navbar li {
+    
     margin-right: 15px;
   }
 
   .right-navbar li {
     margin-left: 15px;
+    
   }
 
   .main-footer {
