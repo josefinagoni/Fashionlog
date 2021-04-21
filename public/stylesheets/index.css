@@ -158,6 +158,7 @@ hr {
 .col-7{
   margin-top: 10px;
 }
+
 .logo{
   height: 100px;
 }
@@ -226,6 +227,15 @@ hr {
   padding-bottom: 5px;
 }
 
+.crea-ingreso{
+  background-color: var(--pink);
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  font-size: larger;
+  padding-bottom: 5px;
+}
 .cerrar{
   background-color: rgb(196, 100, 156);
   padding-top: 3px;
@@ -250,12 +260,21 @@ hr {
 .main-title{
   margin-left: 20px;
   font-family: var(--fashiolog-font-family);
-  
+
 }
+
+.tlp{
+margin-left: 0%;
+font-family: 'Libre Baskerville', serif;
+}
+
 .fa-user-circle{
   display: block;
 }
 
+.right-navbar{
+  margin-left: 1px;
+}
 /*====== Banner ======*/
 .banner {
   background-image: url(/images/vestidor-banner.jpg);
