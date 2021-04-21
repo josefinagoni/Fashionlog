@@ -667,6 +667,14 @@ form.registrarse input[type="submit"]:hover{
   margin-left:auto;
   margin-right: auto;
 }
+.add-product-background{
+  background-image: url("/images/add-product.jpg");
+  background-size: cover;
+}
+.container-add{
+  margin-left:auto;
+  margin-right: auto;
+}
 
 /*====== Probando CSS forms ======*/
 
