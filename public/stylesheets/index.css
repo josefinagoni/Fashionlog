@@ -552,6 +552,10 @@ img.product-box_image{
   font-size: 1.7em;
 }
 
+.fecha-publicacion{
+  font-size: 0.5em;
+}
+
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;

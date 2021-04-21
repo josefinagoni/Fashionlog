@@ -38,6 +38,16 @@ const controlador = {
     indexLog: (req, res) => {
         
         res.render('indexLog', {productos: productos.lista})
+    },
+    productLog: (req, res) => {
+        
+        let id = req.params.id
+        for (let index = 0; index < productos.lista.length; index++) {
+            const element = productos.lista[index];
+            if (element.id== id) {
+                res.render('productLog', {producto: element})
+            }
+        }
     }
 };
 
