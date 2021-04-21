@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Include Head -->
 
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
@@ -20,11 +21,23 @@
 			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
 			////////////////
 			</h2>
-		
 
-<!-- footer -->
+            <div class="buscar">
+                <nav class="atras"> <a href="index.ejs" class="volver"></a> </nav>
+                <div class="icon"><i class="fa fa-search"></i></div>  
+                <div class="container-1">
+                <form action="search.ejs" method="GET">
+        
+                    <input type="text" name="buscador" placeholder="Busca una canción...">
+        
+                </form>
+                </div>
+            </div>
+
+
+	<!-- footer -->
 <%- include('../views/partials/footer') %>
-	<!-- /footer -->
+<!-- /footer -->
 </body>
 
 </html>

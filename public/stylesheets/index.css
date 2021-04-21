@@ -278,7 +278,7 @@ font-family: 'Libre Baskerville', serif;
 }
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/vestidor-banner.jpg);
+  background-image: url(/images/banner1.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -698,12 +698,20 @@ form.registrarse input[type="submit"]:hover{
   margin-right: auto;
 }
 .add-product-background{
-  background-image: url("/images/add-product.jpg");
+  background-image: url("/images/add-back.jpeg");
   background-size: cover;
 }
 .container-add{
   margin-left:auto;
   margin-right: auto;
+}
+.container-edit{
+  margin-left:auto;
+  margin-right: auto;
+}
+.edit-background{
+  background-image: url("/images/back-edit.jpeg");
+  background-size: cover;
 }
 
 /*====== Probando CSS forms ======*/
