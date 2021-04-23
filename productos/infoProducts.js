@@ -72,7 +72,19 @@ let listadoProducts = {
             estado: "Usado",
             cover: "/images/producto10.jpeg"
         },
-    ]
-}
+    ],
+   porNombre: function(nombre){
+    let respuesta = [];
+    this.lista.forEach(element => {
+        if (element.nombre.toLowerCase().includes(nombre.toLowerCase())) {
+            respuesta.push(element)
+        }
+        
+    });
+    return respuesta;
 
+    }
+
+};
+ 
 module.exports = listadoProducts;

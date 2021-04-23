@@ -48,9 +48,6 @@ const controlador = {
                 res.render('productLog', {producto: element})
             }
         }
-    },
-    search: (req, res) => {
-        res.render('search', {})
     }
 };
 
