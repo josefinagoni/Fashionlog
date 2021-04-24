@@ -53,7 +53,7 @@ let listadoProducts = {
         },
         {
             id: 8,
-            nombre: "Swater Bershka",
+            nombre: "Sweater Bershka",
             descripcion: "Sweater gris corto con peludito",
             estado: "Usado",
             cover: "/images/producto8.jpeg"

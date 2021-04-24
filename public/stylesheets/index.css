@@ -663,6 +663,11 @@ form.registrarse input[type="submit"]:hover{
 .foto-perfil{
   border-radius: 50%;
 }
+.fotousuario{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
 
 .main-title{
   font-size: 25px;
