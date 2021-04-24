@@ -2,7 +2,7 @@ let listadoProducts = {
     lista: [
         {
             id: 1,
-            nombre: "Campera Mango",
+            nombre: "Campera Zara",
             descripcion: "Campera de Jean color Azul con tachas",
             estado: "Usada",
             cover:"/images/producto1.jpeg"
@@ -25,7 +25,7 @@ let listadoProducts = {
         },
         {
             id: 4,
-            nombre: "Campera Zara",
+            nombre: "Campera Mango",
             descripcion:"Campera de Jean color negra",
             estado: "Nueva con etiqueta",
             cover:"/images/producto4.jpeg"
