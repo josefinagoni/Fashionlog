@@ -22,9 +22,6 @@ const controlador = {
     register: (req, res) => {
         res.render('register', {})
     },
-    search: (req, res) => {
-        res.render('search', {})
-    },
     profile: (req, res) => {
         res.render('profile', {productos: productos.lista})
         
