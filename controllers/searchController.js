@@ -1,8 +1,16 @@
-const products = require('../productos/infoProducts');
-
-const controller = {
-    index: (req,res) => res.render('search', {resultados:products.porNombre(req.query.search),search:req.query.search.toUpperCase()}),
-}
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 
-module.exports = controller;
+module.exports = {
+    buscar: (req,res) => {
+        const buscar = {
+            where: {
+                nombre: {[Op.like]:'%' + req.query.buscar + '%'}
+            }
+        }
+        db.Producto.findAll(buscar).then(resultado => {
+            res.render('search', {lista: resultado});
+        });
+    }
+};
