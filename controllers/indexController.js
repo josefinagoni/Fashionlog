@@ -1,6 +1,7 @@
-const productos = require('../productos/infoProducts');
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
-
+const productos = require('../productos/infoProducts')
 const controlador = {
     index: (req, res) => {
         
@@ -29,6 +30,11 @@ const controlador = {
         res.render('editProfile', {})
     },
     addProduct: (req, res) => {
+       // db.Producto.create({
+         //   nombreProducto: req.body.nombre
+       // }).then(productoCreado => {
+        //    res.redirect('/product/' + productoCreado.id);
+      //  });
         res.render('addProduct', {})
     },
     indexLog: (req, res) => {
