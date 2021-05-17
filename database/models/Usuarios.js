@@ -24,6 +24,9 @@ module.exports = (sequelize, dataTypes) => {
         dni: {
             type: dataTypes.INTEGER
             
+        estado: {
+            type: dataTypes.STRING
+            
         }
     }, {
         tableName: "usuarios",
@@ -31,4 +34,5 @@ module.exports = (sequelize, dataTypes) => {
     });
 
     return Usuario;
+}
 }
