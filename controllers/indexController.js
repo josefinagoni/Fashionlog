@@ -1,6 +1,5 @@
 const productos = require('../productos/infoProducts');
 
-
 const controlador = {
     index: (req, res) => {
         
@@ -22,6 +21,7 @@ const controlador = {
     register: (req, res) => {
         res.render('register', {})
     },
+
     profile: (req, res) => {
         res.render('profile', {productos: productos.lista})
     },
