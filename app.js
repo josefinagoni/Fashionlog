@@ -6,6 +6,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//agregado session
+const session = require('express-session');
+
 var indexRouter = require('./routes/index');
 
 
@@ -21,10 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//agregado session
-const session = require('express-session');
 
-app.use(session({secret: "",
+
+app.use(session({secret: "proyecto integrador",
   resave: false,
   saveUninitialized: true
 }));
