@@ -1,6 +1,8 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+//la linea de abajo permite que las cookies esten disponibles, 
+//si las borro dejan de funcionar(la de var y la de app.use)
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -26,6 +28,13 @@ app.use(session({secret: "",
   resave: false,
   saveUninitialized: true
 }));
+
+app.use(function(req, res, next){
+  res.locals = {
+    
+  }
+  return next();
+});
 
 app.use('/index', indexRouter);
 
