@@ -7,7 +7,9 @@ let searchController = require('../controllers/searchController');
 router.get('/', indexController.index);
 router.get('/product/:id', indexController.product);
 router.get('/login', indexController.login);
+router.post('/login', indexController.loginValidate);
 router.get('/register', indexController.register);
+router.post('/register', indexController.registerCreateUser)
 router.get('/profile', indexController.profile);
 router.get('/edit-profile', indexController.editProfile);
 router.get('/add-product', indexController.addProduct);

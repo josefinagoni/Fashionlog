@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
+const bcrypt = require('bcryptjs')
 
 const productos = require('../productos/infoProducts')
 const controlador = {
@@ -50,6 +51,30 @@ const controlador = {
                 res.render('productLog', {producto: element})
             }
         }
+    },
+    registerCreateUser: (req, res) => {
+        let passEncriptada = bcrypt.hashSync(req.body.contraseña);
+        db.Usuario.create({
+            mail: req.body.mail,
+            pass: passEncriptada
+        }).then(usuario=> {
+            res.redirect('/index')
+        })
+
+    },
+    loginValidate: (req, res) =>{
+        const filtro = {
+            where: {
+                mail: req.body.mail
+            }
+        }
+        db.Usuario.findOne(filtro).then(resultado=> {
+            if (bcyrpt.compareSync(req.body.contraseña, resultado.pass)) {
+                req.session.usuario = usuario.mail
+            }
+            res.redirect('/index')
+        })
+        //no se si el resultado.pass esta bien la referencia
     }
 };
 
