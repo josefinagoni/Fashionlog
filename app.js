@@ -19,6 +19,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//agregado session
+const session = require('express-session');
+
+app.use(session({secret: "",
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.use('/index', indexRouter);
 
 
