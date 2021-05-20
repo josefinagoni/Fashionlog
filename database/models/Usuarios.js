@@ -23,14 +23,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         dni: {
             type: dataTypes.INTEGER
-<<<<<<< HEAD
             
         },
             estado: {
-=======
-        },
-        estado: {
->>>>>>> 5e42298f713887d8fe36e3a80872b698841fe6ba
             type: dataTypes.STRING
             
         }

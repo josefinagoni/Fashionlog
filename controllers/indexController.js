@@ -9,13 +9,18 @@ const controlador = {
         res.render('index', {productos: productos.lista})
     },
     product: (req, res) => {
-        let id = req.params.id
-        for (let index = 0; index < productos.lista.length; index++) {
-            const element = productos.lista[index];
-            if (element.id== id) {
-                res.render('product', {producto: element})
-            }
-        }
+        //let id = req.params.id
+       // for (let index = 0; index < productos.lista.length; index++) {
+           // const element = productos.lista[index];
+           // if (element.id== id) {
+          //      res.render('product', {producto: element})
+            //}
+       // }
+       db.Producto.findByPk(req.params.id).then(resultado =>{
+           res.render('product',{producto: resultado})
+       }
+
+       )
         
     },
     login: (req, res) => {
@@ -31,12 +36,12 @@ const controlador = {
         res.render('editProfile', {})
     },
     addProduct: (req, res) => {
-       // db.Producto.create({
-         //   nombreProducto: req.body.nombre
-       // }).then(productoCreado => {
-        //    res.redirect('/product/' + productoCreado.id);
-      //  });
-        res.render('addProduct', {})
+        db.Producto.create({
+            nombreProducto: req.body.nombre
+        }).then(productoCreado => {
+            res.redirect('/product/' + productoCreado.id);
+        });
+       // res.render('addProduct', {})
     },
     indexLog: (req, res) => {
         
@@ -74,7 +79,7 @@ const controlador = {
             }
             res.redirect('/index')
         })
-        //no se si el resultado.pass esta bien la referencia
+        //faltan cookies
     }
 };
 

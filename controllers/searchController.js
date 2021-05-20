@@ -11,6 +11,7 @@ module.exports = {
         }
         db.Producto.findAll(buscar).then(resultado => {
             res.render('search', {lista: resultado});
-        });
+        }).catch(error => console.log(error))
+        ;
     }
 };
