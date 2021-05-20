@@ -68,18 +68,34 @@ const controlador = {
 
     },
     loginValidate: (req, res) =>{
+        // Filtramos el usuario a traves de un campo que sea UNICO en la base de datos
         const filtro = {
             where: {
                 mail: req.body.mail
             }
         }
-        db.Usuario.findOne(filtro).then(resultado=> {
-            if (bcyrpt.compareSync(req.body.contraseña, resultado.pass)) {
-                req.session.usuario = usuario.mail
+          // Buscamos el usuario que deberia ser unico
+        db.Usuario.findOne(filtro).then(usuario=> {
+             // Comparamos la contraseña ingresada en el login (req.body.pass)
+            // con la que ingresada en el registro (usuario.pass)
+            if (bcyrpt.compareSync(req.body.contraseña, usuario.pass)) {
+                req.session.usuario = usuario.mail;
+            
+             // En caso de que haya seleccionado recodarme, guardamos una cookie
+            }
+            if(req.body.remember){
+                res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
             }
             res.redirect('/index')
-        })
-        //faltan cookies
+        });
+        
+    },
+    logout: (req, res) => {
+        // Borramos la sesion del servidor
+        req.session.destroy();
+        // Eliminamos la cookie del cliente
+        res.clearCookie('userId');
+        res.redirect('/index');
     }
 };
 
