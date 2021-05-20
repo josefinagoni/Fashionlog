@@ -8,7 +8,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
-
 var app = express();
 
 // view engine setup
@@ -26,15 +25,39 @@ const session = require('express-session');
 
 app.use(session( {
   secret: "proyecto integrador",
-  resave: false,
-  saveUninitialized: true
+	resave: false,
+	saveUninitialized: true
 }));
 
-app.use(function(req, res, next){
-  res.locals = {
-    
+// Leer la cookie y loguear al usuario, si no esta logueado (no esta cargado en la sesion)
+
+const db = require('./database/models');
+app.use(function(req, res, next) {
+  if(req.cookies.userId && !req.session.usuario) {
+    db.Usuario.findByPk(req.cookies.userId).then(resultado => {
+      req.session.usuario = resultado.mail;
+      //ver si mail esta bien
+      return next();
+    });
+  } else {
+  	return next();
+  }}
+);
+
+// Cargamos variables en locals, para que puedan ser usadas en todas las vistas (por ej, logueado)
+
+app.use(function(req, res, next) {
+  if(req.session.usuario){
+    res.locals = {
+      logueado: true
+    }
+  } else {
+    res.locals = {
+      logueado: false
+    }
   }
-  return next();
+
+	return next();
 });
 
 app.use('/index', indexRouter);
