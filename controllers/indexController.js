@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-const productos = require('../productos/infoProducts');
-
-=======
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 const productos = require('../productos/infoProducts')
->>>>>>> a204a18c4d475406fb16e85e2762cde010f1e409
 const controlador = {
     index: (req, res) => {
         
