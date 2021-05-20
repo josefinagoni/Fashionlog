@@ -24,7 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //agregado session
 const session = require('express-session');
 
-app.use(session({secret: "",
+app.use(session( {
+  secret: "proyecto integrador",
   resave: false,
   saveUninitialized: true
 }));
