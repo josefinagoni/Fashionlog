@@ -39,6 +39,25 @@
 				</ul>
 	
 				<ul class="right-navbar">
+
+					<% if(! logueado) { %>
+						<li> <div class="crea">
+							<form action="/login">
+							<input type="submit" value="Login">
+						  </form>
+						</div></li>
+						  <li><form action="/register">
+							<input type="submit" value="Register">
+						  </form></li>
+
+						  <% } else { %>
+
+							<li><form action="/logout">
+							  <input type="submit" value="Exit">
+							</form></li>
+						<!-- hay que hacer metodo post para logout??? -->
+							<% } %>
+
 					<!-- Solo logueado <li><a href="profile.html">
 							Nombre del usuario <i class="fas fa-user"></i>
 						</a>
@@ -50,7 +69,8 @@
 							</button>
 						</form>
 					</li> -->
-					<li>
+					
+					<!--<li>
 						<div class="crea">
 						<a href="/index/register" >Registrate <i class="far fa-address-card"></i>
 						</a>
@@ -62,7 +82,7 @@
 						<a href="/index/login">Ingresá <i class="fas fa-sign-in-alt"></i>
 						</a>
 					</div>
-					</li>
+					</li>-->
 				</ul>
 			</nav>
 		</div>
