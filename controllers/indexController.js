@@ -5,8 +5,15 @@ const bcrypt = require('bcryptjs')
 const productos = require('../productos/infoProducts')
 const controlador = {
     index: (req, res) => {
-        
-        res.render('index', {productos: productos.lista})
+        // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
+        if (req.session.usuario){
+            res.render('index', {usuario: req.session.usuario});
+        } else {
+            res.render('index', {usuario: "anonimo"});
+        }
+    
+
+       // res.render('index', {productos: productos.lista})
     },
     product: (req, res) => {
         //let id = req.params.id
