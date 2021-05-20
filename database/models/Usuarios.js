@@ -9,6 +9,21 @@ module.exports = (sequelize, dataTypes) => {
         nombre: {
             type: dataTypes.STRING
         },
+       nacimiento: {
+            type: dataTypes.DATE
+            
+        },
+        email: {
+            type: dataTypes.STRING
+            
+        },
+        contraseña: {
+            type: dataTypes.STRING
+            
+        },
+        dni: {
+            type: dataTypes.INTEGER
+            
         estado: {
             type: dataTypes.STRING
             
@@ -19,4 +34,5 @@ module.exports = (sequelize, dataTypes) => {
     });
 
     return Usuario;
+}
 }
