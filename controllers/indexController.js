@@ -25,9 +25,14 @@ const controlador = {
        // }
        db.Producto.findByPk(req.params.id).then(resultado =>{
            res.render('product',{producto: resultado})
-       }
+       })
 
-       )
+       //ver como es lo de agregar comentarios
+      // db.Comentarios.create({
+       // comment: req.body.comentario
+   // }).then(comment => {
+       // res.redirect('/product/' + comment.id);
+   // });
         
     },
     login: (req, res) => {
