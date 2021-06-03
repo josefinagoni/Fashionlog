@@ -2,18 +2,26 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs')
 
-const productos = require('../productos/infoProducts')
+//const productos = require('../productos/infoProducts')
 const controlador = {
     index: (req, res) => {
+        const filtro = {
+            order: [
+                ['date', 'ASC']
+            ]};
+        
+        db.Producto.findAll(filtro).then(resultado => {
+            res.render('index', {productos: resultado});
+        }).catch(error => console.log(error));
+// .catch(error){console.log(error)}
+
         // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
         if (req.session.usuario){
             res.render('index', {usuario: req.session.usuario});
         } else {
             res.render('index', {usuario: "anonimo"});
         }
-    
-
-       // res.render('index', {productos: productos.lista})
+        
     },
     product: (req, res) => {
         //let id = req.params.id
