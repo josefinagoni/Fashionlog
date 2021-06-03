@@ -60,8 +60,6 @@ app.use(function(req, res, next) {
 	return next();
 });
 
-
-
 app.use('/index', indexRouter);
 
 

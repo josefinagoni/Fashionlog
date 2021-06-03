@@ -11,17 +11,19 @@ const controlador = {
             ]};
         
         db.Producto.findAll(filtro).then(resultado => {
-            
-            if (req.session.usuario){
-                res.render('index', {usuario: req.session.usuario, productos: resultado});
-            } else {
-                res.render('index', {usuario: "anonimo", productos: resultado});
-            }
-        }).catch(error => console.log(error));
+            res.render('index', {productos: resultado});
+        }).catch(error => {
+            console.log("Error de conexion");
+            res.render('index', {error: "Error de conexion"});
+        });
 // .catch(error){console.log(error)}
 
         // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
-        
+        if (req.session.usuario){
+            res.render('index', {usuario: req.session.usuario});
+        } else {
+            res.render('index', {usuario: "anonimo"});
+        }
         
     },
     product: (req, res) => {
@@ -50,6 +52,7 @@ const controlador = {
     register: (req, res) => {
         res.render('register', {})
     },
+
     profile: (req, res) => {
         res.render('profile', {productos: productos.lista})
     },
