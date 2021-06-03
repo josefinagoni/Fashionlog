@@ -12,6 +12,9 @@ module.exports = (sequelize, dataTypes) => {
         estado: {
             type: dataTypes.STRING
             
+        },
+        fecha: {
+            type: dataTypes.DATE
         }
     }, {
         tableName: "productos",
