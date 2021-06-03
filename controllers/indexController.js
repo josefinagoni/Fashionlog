@@ -11,16 +11,17 @@ const controlador = {
             ]};
         
         db.Producto.findAll(filtro).then(resultado => {
-            res.render('index', {productos: resultado});
+            
+            if (req.session.usuario){
+                res.render('index', {usuario: req.session.usuario, productos: resultado});
+            } else {
+                res.render('index', {usuario: "anonimo", productos: resultado});
+            }
         }).catch(error => console.log(error));
 // .catch(error){console.log(error)}
 
         // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
-        if (req.session.usuario){
-            res.render('index', {usuario: req.session.usuario});
-        } else {
-            res.render('index', {usuario: "anonimo"});
-        }
+        
         
     },
     product: (req, res) => {

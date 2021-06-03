@@ -4,7 +4,9 @@ nombre VARCHAR (50) NOT NULL,
 nacimiento DATE NOT NULL,
 email VARCHAR (500),
 contrasena VARCHAR (250),
-dni INT NOT NULL
+dni INT NOT NULL ,
+createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE productos(
@@ -13,7 +15,9 @@ nombre VARCHAR (150) NOT NULL,
 fecha DATE NOT NULL,
 imagen VARCHAR (500) NOT NULL,
 usuario_id INT UNSIGNED,
-FOREIGN KEY (usuario_id) references usuarios(id)
+FOREIGN KEY (usuario_id) references usuarios(id),
+createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE comentarios(
@@ -23,7 +27,9 @@ fecha DATE NOT NULL,
 usuario_id INT UNSIGNED,
 producto_id INT UNSIGNED,
 FOREIGN KEY (usuario_id) references usuarios(id),
-FOREIGN KEY (producto_id) references productos(id)
+FOREIGN KEY (producto_id) references productos(id),
+createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 SELECT usuarios.id FROM usuarios
