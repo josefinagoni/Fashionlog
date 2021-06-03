@@ -34,15 +34,15 @@ const controlador = {
        // }
        db.Producto.findByPk(req.params.id).then(resultado =>{
            res.render('product',{producto: resultado})
-       })
+       });
 
        //ver como es lo de agregar comentarios
-      // db.Comentarios.create({
-       // comment: req.body.comentario
-   // }).then(comment => {
-       // res.redirect('/product/' + comment.id);
-   // });
-        
+       db.Comentarios.create({
+        comment: req.body.comentario
+    }).then(commentCreado => {
+        res.redirect('/product/'+ commentCreado.id);
+    });
+        //que hay que poner en el redirect de comentario creado
     },
     login: (req, res) => {
         res.render('login', {})
