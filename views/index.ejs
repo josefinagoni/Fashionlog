@@ -4,13 +4,17 @@
 <%- include('../views/partials/head') %>
 <body>
 	<!-- Header -->
+	<% if(! logueado) { %>
 <%- include('../views/partials/header') %>
+<% } else { %>
+<%- include('../views/partials/headerlog') %>	
+<% } %>
 	<!-- /Header -->
 	
 	<% if(error) {%>
 		<span>Hubo un ERROR: <%=error%></span><br><br><br><br>
 	  <% } %> 
-	  
+
 	<!-- Banner -->
 	<div class="banner">
 		

@@ -32,13 +32,6 @@ const controlador = {
         
     },
     product: (req, res) => {
-        //let id = req.params.id
-       // for (let index = 0; index < productos.lista.length; index++) {
-           // const element = productos.lista[index];
-           // if (element.id== id) {
-          //      res.render('product', {producto: element})
-            //}
-       // }
        db.Producto.findByPk(req.params.id).then(resultado =>{
            res.render('product',{producto: resultado})
        });
@@ -101,9 +94,16 @@ const controlador = {
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         db.Usuario.create({
+            nombre: req.body.nombre,
+            nacimiento: req.body.fechanac,
             email: req.body.email,
-            pass: passEncriptada
+            contrasena: passEncriptada, 
+            dni: req.body.dni
         }).then(usuario=> {
+            req.session.usuario = {
+                id: usuario.id,
+                nombre: usuario.nombre
+            }
             res.redirect('/index')
         })
 
@@ -137,6 +137,29 @@ const controlador = {
         // Eliminamos la cookie del cliente
         res.clearCookie('userId');
         res.redirect('/index');
+    },
+    vistaEditProduct: (req, res) =>{
+        db.Productos.findByPk(req.params.id).then(resultado =>{
+            res.render('editProduct',{producto: resultado});
+        
+        } )},
+    editProduct: (req, res) =>{
+        db.Productos.update({
+            nombre: req.body.nombre //agregar el resto
+        },{
+            where: {
+                id: req.body.id
+            }
+        }).then(resultado=>{
+            res.redirect('/index') //dsp redirigo a producto + resultado.id
+        })
+    },
+    deleteProduct: (req, res) =>{
+        db.Productos.destroy({
+            where: {
+                id: req.body.id
+            }}).then(resultado=>{
+                res.redirect('/index')})
     }
 };
 

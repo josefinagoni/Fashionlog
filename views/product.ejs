@@ -14,6 +14,17 @@
 			<p class="product-detail-description"> de
 				<a href="/index/profile"> Belen Martinez</a>
 			</p>
+			<p class="product-detail-description">
+				<a href="/index/edit-product/<%= producto.id %>" class="edit">Editar</a>
+			</p>
+			<p class="divider">|</p>
+			<p>
+				<form action="/index/delete-product" method="POST">
+					<input type="hidden" name="id" value="<%= product.id %>" class="delete-input">
+					<!-- <input type="submit" value="Borrar"> -->
+					<button class="button"><i class="far fa-trash-alt trashcan"></i></button>
+				</form>
+			</p>
 			
 		</div>
 		<div class="product-detail">
