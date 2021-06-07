@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
             
         },
-        contraseña: {
+        contrasena: {
             type: dataTypes.STRING
             
         },
@@ -25,10 +25,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
             
         },
-            estado: {
-            type: dataTypes.STRING
             
-        }
+        
     }, {
         tableName: "usuarios",
         timestamps: false

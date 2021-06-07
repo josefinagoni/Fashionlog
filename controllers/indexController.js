@@ -117,7 +117,7 @@ const controlador = {
         db.Usuario.findOne(filtro).then(usuario=> {
              // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
-            if (bcyrpt.compareSync(req.body.contraseña, usuario.contrasena) && usuario) {
+            if (bcrypt.compareSync(req.body.contraseña, usuario.contrasena) && usuario) {
                 req.session.usuario = {
                     id: usuario.id,
                     nombre: usuario.nombre
