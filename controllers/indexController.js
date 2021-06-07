@@ -4,13 +4,16 @@ const bcrypt = require('bcryptjs')
 
 //const productos = require('../productos/infoProducts')
 const controlador = {
+    
     index: (req, res) => {
+        
         const filtro = {
             order: [
-                ['date', 'ASC']
+                ['fecha', 'ASC']
             ]};
         
         db.Producto.findAll(filtro).then(resultado => {
+            
            
             if (req.session.usuario){
                 res.render('index', {usuario: req.session.usuario, productos: resultado, error: null});
@@ -19,10 +22,10 @@ const controlador = {
             }
             
         })
-        //.catch(error => {
-            //console.log("Error de conexion");
-           // res.render('index', {error: "Error de conexion"});
-        //});
+         .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+         });
 // .catch(error){console.log(error)}
 
         // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
