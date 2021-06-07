@@ -7,6 +7,10 @@
 <%- include('../views/partials/header') %>
 	<!-- /Header -->
 	
+	<% if(error) {%>
+		<span>Hubo un ERROR: <%=error%></span><br><br><br><br>
+	  <% } %> 
+	  
 	<!-- Banner -->
 	<div class="banner">
 		

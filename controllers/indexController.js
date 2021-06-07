@@ -13,15 +13,16 @@ const controlador = {
         db.Producto.findAll(filtro).then(resultado => {
            
             if (req.session.usuario){
-                res.render('index', {usuario: req.session.usuario, productos: resultado});
+                res.render('index', {usuario: req.session.usuario, productos: resultado, error: null});
             } else {
-                res.render('index', {usuario: "anonimo", productos: resultado});
+                res.render('index', {usuario: "anonimo", productos: resultado, error: null});
             }
             
-        }).catch(error => {
-            console.log("Error de conexion");
-            res.render('index', {error: "Error de conexion"});
-        });
+        })
+        //.catch(error => {
+            //console.log("Error de conexion");
+           // res.render('index', {error: "Error de conexion"});
+        //});
 // .catch(error){console.log(error)}
 
         // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
@@ -61,11 +62,19 @@ const controlador = {
         res.render('editProfile', {})
     },
     addProduct: (req, res) => {
-        db.Producto.create({
-            nombreProducto: req.body.nombre
+        let productoNuevo =  req.body.nombre; 
+
+        if (productoNuevo.includes('feo')) {
+          console.log('El nombre del producto no puede contener la palabra feo') ;
+          res.render('profile', {error: 'El nombre del producto no puede contener la palabra feo'})
+        } else{
+            db.Producto.create({
+            productoNuevo: productoNuevo
         }).then(productoCreado => {
             res.redirect('/product/' + productoCreado.id);
         });
+        }
+
        // res.render('addProduct', {})
     },
     indexLog: (req, res) => {
