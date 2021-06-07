@@ -32,10 +32,13 @@ router.get('/logout', indexController.logout);
 router.get('/register', indexController.register);
 router.post('/register', indexController.registerCreateUser);
 
-router.get('/profile', indexController.profile);
+router.get('/profile/:id', indexController.profile);
 router.get('/edit-profile', indexController.editProfile);
 router.post('/add-product', upload.single('productoAgregado'), indexController.addProduct);
 router.get('/add-product', indexController.vistaAddProduct);
+router.post('/edit-product', upload.single('productoAgregado'), indexController.editProduct);
+router.get('/edit-product/:id', indexController.vistaEditProduct);
+router.post('/delete-product', indexController.deleteProduct);
 router.get('/index-log', indexController.indexLog);
 router.get('/product-log/:id', indexController.productLog);
 router.get('/search', searchController.buscar);

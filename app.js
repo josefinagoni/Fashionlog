@@ -35,7 +35,7 @@ const db = require('./database/models');
 app.use(function(req, res, next) {
   if(req.cookies.userId && !req.session.usuario) {
     db.Usuario.findByPk(req.cookies.userId).then(resultado => {
-      req.session.usuario = resultado.mail;
+      req.session.usuario = resultado.email;
       //ver si mail esta bien
       return next();
     });
@@ -49,7 +49,8 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
   if(req.session.usuario){
     res.locals = {
-      logueado: true
+      logueado: true,
+      usuario: req.session.usuario
     }
   } else {
     res.locals = {
