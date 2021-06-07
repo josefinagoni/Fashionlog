@@ -75,7 +75,7 @@ const controlador = {
             nombre: productoNuevo //,descripcion: req.body.descripcion como va en el form
 
         }).then(productoCreado => {
-            res.redirect('/product/' + productoCreado.id);
+            res.redirect('/index');
         });
       //  }
         console.log('/images/nuevasimagenes' + req.file.filename);
