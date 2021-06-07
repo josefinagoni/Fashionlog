@@ -44,11 +44,11 @@ const controlador = {
        });
 
        //ver como es lo de agregar comentarios
-       db.Comentarios.create({
-        comment: req.body.comentario
-    }).then(commentCreado => {
-        res.redirect('/product/'+ commentCreado.id);
-    });
+      // db.Comentarios.create({
+        //comment: req.body.comentario
+    //}).then(commentCreado => {
+      //  res.redirect('/product/'+ commentCreado.id);
+  //  });
         //que hay que poner en el redirect de comentario creado
     },
     login: (req, res) => {
@@ -97,7 +97,7 @@ const controlador = {
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         db.Usuario.create({
-            mail: req.body.mail,
+            email: req.body.email,
             pass: passEncriptada
         }).then(usuario=> {
             res.redirect('/index')
@@ -108,7 +108,7 @@ const controlador = {
         // Filtramos el usuario a traves de un campo que sea UNICO en la base de datos
         const filtro = {
             where: {
-                mail: req.body.mail
+                email: req.body.email
             }
         }
           // Buscamos el usuario que deberia ser unico
@@ -116,7 +116,7 @@ const controlador = {
              // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
             if (bcyrpt.compareSync(req.body.contraseña, usuario.pass)) {
-                req.session.usuario = usuario.mail;
+                req.session.usuario = usuario.email;
             
              // En caso de que haya seleccionado recodarme, guardamos una cookie
             }
