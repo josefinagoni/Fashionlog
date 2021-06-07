@@ -67,18 +67,22 @@ const controlador = {
     addProduct: (req, res) => {
         let productoNuevo =  req.body.nombre; 
 
-        if (productoNuevo.includes('feo')) {
-          console.log('El nombre del producto no puede contener la palabra feo') ;
-          res.render('profile', {error: 'El nombre del producto no puede contener la palabra feo'})
-        } else{
+      //  if (productoNuevo.includes('feo')) {
+         // console.log('El nombre del producto no puede contener la palabra feo') ;
+         // res.render('profile', {error: 'El nombre del producto no puede contener la palabra feo'})
+      //  } else{
             db.Producto.create({
-            productoNuevo: productoNuevo
+            nombre: productoNuevo //,descripcion: req.body.descripcion como va en el form
+
         }).then(productoCreado => {
             res.redirect('/product/' + productoCreado.id);
         });
-        }
+      //  }
         console.log('/images/nuevasimagenes' + req.file.filename);
        // res.render('addProduct', {})
+    },
+    vistaAddProduct: (req, res) => {
+            res.render('addProduct')
     },
     indexLog: (req, res) => {
         

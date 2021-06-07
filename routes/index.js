@@ -35,6 +35,7 @@ router.post('/register', indexController.registerCreateUser);
 router.get('/profile', indexController.profile);
 router.get('/edit-profile', indexController.editProfile);
 router.post('/add-product', upload.single('productoAgregado'), indexController.addProduct);
+router.get('/add-product', indexController.vistaAddProduct);
 router.get('/index-log', indexController.indexLog);
 router.get('/product-log/:id', indexController.productLog);
 router.get('/search', searchController.buscar);
