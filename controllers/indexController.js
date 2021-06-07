@@ -7,19 +7,17 @@ const controlador = {
     
     index: (req, res) => {
         
-        const filtro = {
-            order: [
-                ['fecha', 'ASC']
-            ]};
+       
+            
         
-        db.Producto.findAll(filtro).then(resultado => {
+        db.Producto.findAll().then(resultado => {
             
            
-            if (req.session.usuario){
-                res.render('index', {usuario: req.session.usuario, productos: resultado, error: null});
-            } else {
-                res.render('index', {usuario: "anonimo", productos: resultado, error: null});
-            }
+            
+                res.render('index', { productos: resultado, error: null});
+            
+               
+            
             
         })
          .catch(error => {
@@ -139,12 +137,12 @@ const controlador = {
         res.redirect('/index');
     },
     vistaEditProduct: (req, res) =>{
-        db.Productos.findByPk(req.params.id).then(resultado =>{
+        db.Producto.findByPk(req.params.id).then(resultado =>{
             res.render('editProduct',{producto: resultado});
         
         } )},
     editProduct: (req, res) =>{
-        db.Productos.update({
+        db.Producto.update({
             nombre: req.body.nombre //agregar el resto
         },{
             where: {
@@ -155,7 +153,7 @@ const controlador = {
         })
     },
     deleteProduct: (req, res) =>{
-        db.Productos.destroy({
+        db.Producto.destroy({
             where: {
                 id: req.body.id
             }}).then(resultado=>{
