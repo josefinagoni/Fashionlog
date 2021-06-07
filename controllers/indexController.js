@@ -77,7 +77,7 @@ const controlador = {
             res.redirect('/product/' + productoCreado.id);
         });
         }
-
+        console.log('/images/nuevasimagenes' + req.file.filename);
        // res.render('addProduct', {})
     },
     indexLog: (req, res) => {
