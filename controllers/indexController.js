@@ -43,7 +43,7 @@ const controlador = {
         //que hay que poner en el redirect de comentario creado
     },
     login: (req, res) => {
-        res.render('login', {})
+        res.render('login', {error:null})
     },
     register: (req, res) => {
         res.render('register', {})
@@ -117,15 +117,23 @@ const controlador = {
         db.Usuario.findOne(filtro).then(usuario=> {
              // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
-            if (bcyrpt.compareSync(req.body.contraseña, usuario.pass)) {
-                req.session.usuario = usuario.email;
+            if (bcyrpt.compareSync(req.body.contraseña, usuario.contrasena) && usuario) {
+                req.session.usuario = {
+                    id: usuario.id,
+                    nombre: usuario.nombre
+                }
+                res.redirect('/index')
             
              // En caso de que haya seleccionado recodarme, guardamos una cookie
+            } else {
+                res.render('index', {
+                    error:"El mail o la contrseña son incorrectos"
+                })
             }
-            if(req.body.remember){
-                res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
-            }
-            res.redirect('/index')
+          //  if(req.body.remember){
+            //    res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
+           // }
+            
         });
         
     },

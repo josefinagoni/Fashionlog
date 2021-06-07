@@ -18,7 +18,9 @@
 			<form class="container-form-login" action="" method="post">
 				<h2 class="titulo">login</h2>
 			  <p>
-				 
+				<% if (error) { %>
+					<p id="error"><%=error%></p>
+				<% } %>
 				 <input type="email" name="email" id="email" class="email" placeholder="email" required>
 			  </p>
 			  <p>
