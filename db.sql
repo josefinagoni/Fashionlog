@@ -14,6 +14,7 @@ id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR (150)  ,
 
 imagen VARCHAR (500) ,
+descripcion VARCHAR (500) ,
 usuario_id INT UNSIGNED,
 FOREIGN KEY (usuario_id) references usuarios(id),
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
