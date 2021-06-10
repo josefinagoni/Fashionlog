@@ -32,15 +32,18 @@ const controlador = {
     product: (req, res) => {
        db.Producto.findByPk(req.params.id).then(resultado =>{
            res.render('product',{producto: resultado})
-       });
+       });   
+    },
+    productComentario: (req, res) =>{
+        db.Comentario.create({
+            texto: req.body.comentario,
+            usuario_id: req.session.usuario, //chequear
+            product_id: req.params.id // ?? para sacarlo de en que producto estamos va por ruta
 
-       //ver como es lo de agregar comentarios
-      // db.Comentarios.create({
-        //comment: req.body.comentario
-    //}).then(commentCreado => {
-      //  res.redirect('/product/'+ commentCreado.id);
-  //  });
-        //que hay que poner en el redirect de comentario creado
+
+        }).then(resultado => {
+            res.redirect('/product'); // a donde registro
+        });
     },
     login: (req, res) => {
         res.render('login', {error:null})
@@ -53,7 +56,26 @@ const controlador = {
         res.render('profile', {productos: productos.lista})
     },
     editProfile: (req, res) => {
-        res.render('editProfile', {})
+        let passEncriptada = bcrypt.hashSync(req.body.contraseña); //hay que poner esto aca??
+        db.Usuario.update({
+            nombre: req.body.nombre,
+            nacimiento: req.body.fechanac,
+            email: req.body.email,
+            contrasena: passEncriptada, 
+            dni: req.body.dni
+        },{
+            where: {
+                id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
+            }
+        }).then(resultado=>{
+            res.redirect('/profile' + resultado.id) 
+        })
+    },
+    vistaEditProfile: (req, res) => {
+        db.Usuario.findByPk(req.params.id).then(resultado =>{
+            res.render('editProfile',{usuario: resultado});
+        
+        } )
     },
     addProduct: (req, res) => {
         let productoNuevo =  req.body.nombre; 
@@ -70,7 +92,7 @@ const controlador = {
 
 
         }).then(productoCreado => {
-            res.redirect('/index');
+            res.redirect('/product' + productoCreado.id);
         });
       //  }
         console.log('/images/nuevasimagenes' + req.file.filename);
@@ -78,26 +100,6 @@ const controlador = {
     },
     vistaAddProduct: (req, res) => {
             res.render('addProduct')
-    },
-    indexLog: (req, res) => {
-        
-        //ver si esto de abajo va o no
-     //   if (req.session.usuario != undefined) {
-       //     return res.redirect('index')
-        //} else {
-          //  return res.render ('indexLog', {productos: productos.lista})
-        //}
-        res.render('indexLog', {productos: productos.lista})
-    },
-    productLog: (req, res) => {
-        
-        let id = req.params.id
-        for (let index = 0; index < productos.lista.length; index++) {
-            const element = productos.lista[index];
-            if (element.id== id) {
-                res.render('productLog', {producto: element})
-            }
-        }
     },
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);

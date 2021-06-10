@@ -13,11 +13,13 @@ module.exports = (sequelize, dataTypes) => {
             //dataTypes: STRING
            
        // },
-       descripcion: {
-           type: dataTypes.STRING
-       },
-        usuario_id: {
+       
+       
+        usuario_id : {
             type: dataTypes.INTEGER
+        },
+        descripcion: {
+            type: dataTypes.STRING
         },
 
         createdAt: {
@@ -25,7 +27,8 @@ module.exports = (sequelize, dataTypes) => {
         } ,
         updatedAt: {
             type: dataTypes.DATE
-        }
+        },
+        
     }, {
         tableName: "productos",
         timestamps: false
