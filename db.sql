@@ -53,18 +53,18 @@ insert into usuarios(id, nombre, nacimiento, email, contrasena, dni) values (def
 insert into usuarios(id, nombre, nacimiento, email, contrasena, dni) values (default, 'Agus Bosch', '2000-03-14', 'agusbbosch@yahoo.com.ar', 'bosch1617', 43812990 ) ;
 insert into usuarios(id, nombre, nacimiento, email, contrasena, dni) values (default, 'Valen Perez', '1995-09-11', 'valenperez@gmail.com', 'valen123', 49888034) ;
 
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Campera Mango', '2010-04-10', '/producto1.jpeg' , 1) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Campera Rapsodia', '2011-09-10', '/producto2.jpeg' , 2) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Pantalon Zara', '2010-04-12', '/producto3.jpeg' , 3) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Campera Zara', '2016-09-11', '/producto4.jpeg' , 4) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Remera Forever XXI', '2020-12-09', '/producto5.jpeg' , 5) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Campera Mango', '2010-04-10', '/producto1.jpeg' , 1) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Campera Rapsodia', '2011-09-10', '/producto2.jpeg' , 2) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Pantalon Zara', '2010-04-12', '/producto3.jpeg' , 3) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Campera Zara', '2016-09-11', '/producto4.jpeg' , 4) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Remera Forever XXI', '2020-12-09', '/producto5.jpeg' , 5) ;
 -- 12:05:05	into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Campera Mango', '2010-04-10', 'producto1.jpeg' , 1)	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Campera' at line 1	0.00030 sec
 
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Jean Abercrombie', '2009-11-24', 'producto6.jpeg' , 1) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Joggin Uniqlo', '2019-11-14', 'producto7.jpeg' , 2) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Swater Bershka', '2020-05-18', 'producto8.jpeg' , 3) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Borcegos Prune', '2019-08-12', 'producto9.jpeg' , 4) ;
-insert into productos (id, nombre, fecha, imagen, usuario_id ) values (default,'Cartera Kralice', '2018-10-20', 'producto10.jpeg' , 5) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Jean Abercrombie', '2009-11-24', 'producto6.jpeg' , 1) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Joggin Uniqlo', '2019-11-14', 'producto7.jpeg' , 2) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Swater Bershka', '2020-05-18', 'producto8.jpeg' , 3) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Borcegos Prune', '2019-08-12', 'producto9.jpeg' , 4) ;
+insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Cartera Kralice', '2018-10-20', 'producto10.jpeg' , 5) ;
 
 insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 1);
 insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 1);
