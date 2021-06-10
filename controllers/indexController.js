@@ -81,6 +81,12 @@ const controlador = {
     },
     indexLog: (req, res) => {
         
+        //ver si esto de abajo va o no
+     //   if (req.session.usuario != undefined) {
+       //     return res.redirect('index')
+        //} else {
+          //  return res.render ('indexLog', {productos: productos.lista})
+        //}
         res.render('indexLog', {productos: productos.lista})
     },
     productLog: (req, res) => {
