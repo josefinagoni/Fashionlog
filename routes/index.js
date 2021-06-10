@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
 
 router.get('/', indexController.index);
 router.get('/product/:id', indexController.product);
+router.post('/product/:id', indexController.productComentario);
 
 router.get('/login', indexController.login);
 router.post('/login', indexController.loginValidate);
@@ -43,10 +44,6 @@ router.get('/edit-product/:id', indexController.vistaEditProduct);
 router.post('/delete-product', indexController.deleteProduct);
 
 router.get('/search', searchController.buscar);
-
-
-
-
 
 module.exports = router;
 
