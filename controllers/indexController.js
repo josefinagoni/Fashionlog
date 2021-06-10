@@ -53,7 +53,26 @@ const controlador = {
         res.render('profile', {productos: productos.lista})
     },
     editProfile: (req, res) => {
-        res.render('editProfile', {})
+        let passEncriptada = bcrypt.hashSync(req.body.contraseña); //hay que poner esto aca??
+        db.Usuario.update({
+            nombre: req.body.nombre,
+            nacimiento: req.body.fechanac,
+            email: req.body.email,
+            contrasena: passEncriptada, 
+            dni: req.body.dni
+        },{
+            where: {
+                id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
+            }
+        }).then(resultado=>{
+            res.redirect('/index' + resultado.id) 
+        })
+    },
+    vistaEditProfile: (req, res) => {
+        db.Usuario.findByPk(req.params.id).then(resultado =>{
+            res.render('editProfile',{usuario: resultado});
+        
+        } )
     },
     addProduct: (req, res) => {
         let productoNuevo =  req.body.nombre; 

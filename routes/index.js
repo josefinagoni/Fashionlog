@@ -33,14 +33,19 @@ router.get('/register', indexController.register);
 router.post('/register', indexController.registerCreateUser);
 
 router.get('/profile/:id', indexController.profile);
-router.get('/edit-profile', indexController.editProfile);
+router.post('/edit-profile', indexController.editProfile); 
+router.get('/edit-profile/:id', indexController.vistaEditProfile); 
+
 router.post('/add-product', upload.single('productoAgregado'), indexController.addProduct);
 router.get('/add-product', indexController.vistaAddProduct);
 router.post('/edit-product', upload.single('productoAgregado'), indexController.editProduct);
 router.get('/edit-product/:id', indexController.vistaEditProduct);
 router.post('/delete-product', indexController.deleteProduct);
+
+//abria que borrar estas y sus vistas
 router.get('/index-log', indexController.indexLog);
 router.get('/product-log/:id', indexController.productLog);
+
 router.get('/search', searchController.buscar);
 
 
