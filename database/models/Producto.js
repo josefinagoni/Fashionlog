@@ -9,10 +9,13 @@ module.exports = (sequelize, dataTypes) => {
         nombre: {
             type: dataTypes.STRING
         },
-       // imagen: {
+        //imagen: {
+            //dataTypes: STRING
            
-
-      //  },
+       // },
+       descripcion: {
+           type: dataTypes.STRING
+       },
         usuario_id: {
             type: dataTypes.INTEGER
         },
