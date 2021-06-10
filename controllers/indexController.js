@@ -65,7 +65,7 @@ const controlador = {
                 id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
             }
         }).then(resultado=>{
-            res.redirect('/index' + resultado.id) 
+            res.redirect('/profile' + resultado.id) 
         })
     },
     vistaEditProfile: (req, res) => {
@@ -89,7 +89,7 @@ const controlador = {
 
 
         }).then(productoCreado => {
-            res.redirect('/index');
+            res.redirect('/product' + productoCreado.id);
         });
       //  }
         console.log('/images/nuevasimagenes' + req.file.filename);
@@ -97,20 +97,6 @@ const controlador = {
     },
     vistaAddProduct: (req, res) => {
             res.render('addProduct')
-    },
-    indexLog: (req, res) => {
-        
-        res.render('indexLog', {productos: productos.lista})
-    },
-    productLog: (req, res) => {
-        
-        let id = req.params.id
-        for (let index = 0; index < productos.lista.length; index++) {
-            const element = productos.lista[index];
-            if (element.id== id) {
-                res.render('productLog', {producto: element})
-            }
-        }
     },
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);

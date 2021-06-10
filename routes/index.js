@@ -42,10 +42,6 @@ router.post('/edit-product', upload.single('productoAgregado'), indexController.
 router.get('/edit-product/:id', indexController.vistaEditProduct);
 router.post('/delete-product', indexController.deleteProduct);
 
-//abria que borrar estas y sus vistas
-router.get('/index-log', indexController.indexLog);
-router.get('/product-log/:id', indexController.productLog);
-
 router.get('/search', searchController.buscar);
 
 
