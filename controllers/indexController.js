@@ -63,7 +63,11 @@ const controlador = {
          // res.render('profile', {error: 'El nombre del producto no puede contener la palabra feo'})
       //  } else{
             db.Producto.create({
-            nombre: productoNuevo //,descripcion: req.body.descripcion como va en el form
+            nombre: productoNuevo,//,descripcion: req.body.descripcion como va en el form
+            imagen: req.body.image,
+            descripcion: req.body.descripcion,
+            usuario_id: req.session.usuario //chequear esta linea
+
 
         }).then(productoCreado => {
             res.redirect('/index');
@@ -151,13 +155,17 @@ const controlador = {
         } )},
     editProduct: (req, res) =>{
         db.Producto.update({
-            nombre: req.body.nombre //agregar el resto
+            nombre: req.body.nombre,
+            imagen: req.body.image,
+            descripcion: req.body.descripcion,
+            usuario_id: req.session.usuario //chequear esta linea
+
         },{
             where: {
-                id: req.body.id
+                id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
             }
         }).then(resultado=>{
-            res.redirect('/index') //dsp redirigo a producto + resultado.id
+            res.redirect('/index' + resultado.id) //esto???
         })
     },
     deleteProduct: (req, res) =>{
