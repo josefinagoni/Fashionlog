@@ -30,19 +30,38 @@ const controlador = {
         
     },
     product: (req, res) => {
-       db.Producto.findByPk(req.params.id).then(resultado =>{
-           res.render('product',{producto: resultado})
-       });   
+        const filtro = {
+            include: [
+                {association: 'comentario', include: 'usuario'} 
+            ]
+
+        }
+        db.Producto.findByPk(req.params.id, filtro).then(resultado =>{
+            if(resultado){
+                res.render('product',{producto: resultado})
+            }
+            else{res.render('index', {error: "No existe el producto: " + error.message});}
+           
+
+       })
+       .catch((error) => {
+           console.log(error)
+        //res.render ('error', {error: "Error de conexion: " + error.message});
+    });
+
     },
     productComentario: (req, res) =>{
         db.Comentario.create({
             texto: req.body.comentario,
-            usuario_id: req.session.usuario, //chequear
+            usuario_id: req.session.usuario, //chequear validar con condicional de solo si estas logueado
             product_id: req.params.id // ?? para sacarlo de en que producto estamos va por ruta
 
 
         }).then(resultado => {
-            res.redirect('/product'); // a donde registro
+            res.redirect('/product/' + req.params.id); // a donde registro el id y ruta 
+        })
+        .catch((error) => {
+            res.render ('error', {error: "Error de conexion: " + error.message});
         });
     },
     login: (req, res) => {
