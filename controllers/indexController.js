@@ -98,12 +98,20 @@ const controlador = {
         }).then(resultado=>{
             res.redirect('/profile' + resultado.id) 
         })
+        .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+        });    
     },
     vistaEditProfile: (req, res) => {
         db.Usuario.findByPk(req.params.id).then(resultado =>{
             res.render('editProfile',{usuario: resultado});
         
         } )
+        .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+        }); 
     },
     addProduct: (req, res) => {
         let productoNuevo =  req.body.nombre; 
@@ -121,10 +129,15 @@ const controlador = {
 
         }).then(productoCreado => {
             res.redirect('/product' + productoCreado.id);
+    
         });
+        
       //  }
-        console.log('/images/nuevasimagenes' + req.file.filename);
+        console.log('/images/nuevasimagenes' + req.file.filename)
        // res.render('addProduct', {})
+    //   .catch(error => {
+    //    console.log("Error de conexion: " + error.message);
+    //    res.render('index', {error: "Error de conexion"});
     },
     vistaAddProduct: (req, res) => {
             res.render('addProduct')
@@ -144,6 +157,10 @@ const controlador = {
             }
             res.redirect('/index')
         })
+        .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+        }); 
 
     },
     loginValidate: (req, res) =>{
@@ -174,7 +191,11 @@ const controlador = {
             //    res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
            // }
             
-        });
+        })
+        .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+        }); 
         
     },
     logout: (req, res) => {
@@ -188,7 +209,12 @@ const controlador = {
         db.Producto.findByPk(req.params.id).then(resultado =>{
             res.render('editProduct',{producto: resultado});
         
-        } )},
+        } )
+        .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+        }); 
+    },
     editProduct: (req, res) =>{
         db.Producto.update({
             nombre: req.body.nombre,
@@ -203,14 +229,24 @@ const controlador = {
         }).then(resultado=>{
             res.redirect('/index' + resultado.id) //esto???
         })
+        .catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {error: "Error de conexion"});
+        }); 
     },
     deleteProduct: (req, res) =>{
         db.Producto.destroy({
             where: {
                 id: req.body.id
             }}).then(resultado=>{
-                res.redirect('/index')})
+                res.redirect('/index')
+            })
+             .catch(error => {
+                console.log("Error de conexion: " + error.message);
+                res.render('index', {error: "Error de conexion"});
+                }); 
     }
+    
 };
 
 module.exports = controlador;
