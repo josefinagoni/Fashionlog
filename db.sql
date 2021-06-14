@@ -66,56 +66,56 @@ insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) valu
 insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Borcegos Prune', '2019-08-12', 'producto9.jpeg' , 4) ;
 insert into productos (id, nombre, fecha, imagen, descripcion, usuario_id ) values (default,'Cartera Kralice', '2018-10-20', 'producto10.jpeg' , 5) ;
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 1);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 1);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 1);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 1);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 1);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 1);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 1);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 1);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 11);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 11);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 11);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 11);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 11);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 11);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 11);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 11);
 -- 12:09:25	insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 2)	Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`proyecto integrador`.`comentarios`, CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`))	0.0015 sec
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' ,'2021-05-03', 1, 3);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 3);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 3);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 3);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' ,'2021-05-03', 1, 3);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 3);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 3);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 3);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 4);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 4);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 4);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 4);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 4);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 4);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 4);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 4);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 17);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 17);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 17);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 17);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 17);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 17);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 17);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 17);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 6);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 6);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 6);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 6);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 6);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 6);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 6);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 6);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' ,'2021-05-03', 1, 16);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 16);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 16);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' ,'2021-05-09', 4, 16);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' ,'2021-05-03', 1, 16);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 16);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 16);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'¿De que temporada es?' ,'2021-05-09', 4, 16);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 8);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 8);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 8);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' ,'2021-05-09', 4, 8);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 8);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 8);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 8);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'¿De que temporada es?' ,'2021-05-09', 4, 8);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 13);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 13);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 13);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4,  13);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 13);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 13);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 13);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4,  13);
 
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 10);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 10);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 10);
-insert into comentarios (id, texto, fecha, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 10);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Muy linda la campera! Pero, ¿tiene alguna falla?' , '2021-05-03', 1, 10);
+insert into comentarios (id, texto,  usuario_id, producto_id ) values (default,'Divina! Muy recomendable' , '2019-08-03', 2, 10);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'Muy buena calidad' , '2019-03-18', 3, 10);
+insert into comentarios (id, texto, usuario_id, producto_id ) values (default,'¿De que temporada es?' , '2021-05-09', 4, 10);
 
 
 
