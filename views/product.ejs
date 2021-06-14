@@ -62,6 +62,11 @@
 									Muy buena calidad
 									</p>
 									<p> 18/03/2020</p>
+								<form action="/index/delete-comentario" method="POST">
+										<input type="hidden" name="id" value="<%= comentario.id %>" class="delete-input">
+										<!-- <input type="submit" value="Borrar"> -->
+										<button class="button"><i class="far fa-trash-alt trashcan"></i></button>
+								</form>
 							</div>
 						</article>
 						<article>

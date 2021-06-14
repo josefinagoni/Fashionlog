@@ -64,6 +64,15 @@ const controlador = {
             res.render ('error', {error: "Error de conexion: " + error.message});
         });
     },
+    borrarComentario: (req, res) =>{
+        db.Comentario.destroy({
+            where: {
+                id: req.body.id
+            }}).then(resultado=>{
+                res.redirect('/index')})
+    
+
+    },
     login: (req, res) => {
         res.render('login', {error:null})
     },
