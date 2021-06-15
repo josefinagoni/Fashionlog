@@ -29,7 +29,7 @@ router.post('/delete-comentario' , indexController.borrarComentario);
 
 router.get('/login', indexController.login);
 router.post('/login', indexController.loginValidate);
-router.get('/logout', indexController.logout);
+router.post('/logout', indexController.logout);
 
 router.get('/register', indexController.register);
 router.post('/register', indexController.registerCreateUser);
