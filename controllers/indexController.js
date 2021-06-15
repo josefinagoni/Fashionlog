@@ -90,7 +90,8 @@ const controlador = {
             nacimiento: req.body.fechanac,
             email: req.body.email,
             contrasena: passEncriptada, 
-            dni: req.body.dni
+            dni: req.body.dni,
+            imagen: req.file.filename
         },{
             where: {
                 id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
@@ -114,17 +115,16 @@ const controlador = {
       //  } else{
             db.Producto.create({
             nombre: productoNuevo,//,descripcion: req.body.descripcion como va en el form
-            imagen: req.body.image,
+            imagen: req.file.filename,
             descripcion: req.body.descripcion,
             usuario_id: req.session.usuario //chequear esta linea
 
 
         }).then(productoCreado => {
-            res.redirect('/product' + productoCreado.id);
+            res.redirect('index/product/' + productoCreado.id);
         });
       //  }
-        console.log('/images/nuevasimagenes' + req.file.filename);
-       // res.render('addProduct', {})
+       
     },
     vistaAddProduct: (req, res) => {
             res.render('addProduct')
@@ -136,7 +136,8 @@ const controlador = {
             nacimiento: req.body.fechanac,
             email: req.body.email,
             contrasena: passEncriptada, 
-            dni: req.body.dni
+            dni: req.body.dni,
+            imagen: req.file.filename
         }).then(usuario=> {
             req.session.usuario = {
                 id: usuario.id,
@@ -192,16 +193,16 @@ const controlador = {
     editProduct: (req, res) =>{
         db.Producto.update({
             nombre: req.body.nombre,
-            imagen: req.body.image,
+            imagen: req.file.filename,
             descripcion: req.body.descripcion,
-            usuario_id: req.session.usuario //chequear esta linea
+            
 
         },{
             where: {
-                id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
+                id: req.body.id 
             }
         }).then(resultado=>{
-            res.redirect('/index' + resultado.id) //esto???
+            res.redirect('/index/product/' + resultado.id) 
         })
     },
     deleteProduct: (req, res) =>{

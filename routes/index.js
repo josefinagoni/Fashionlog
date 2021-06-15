@@ -32,15 +32,15 @@ router.post('/login', indexController.loginValidate);
 router.post('/logout', indexController.logout);
 
 router.get('/register', indexController.register);
-router.post('/register', indexController.registerCreateUser);
+router.post('/register', upload.single('img'),indexController.registerCreateUser);
 
 router.get('/profile/:id', indexController.profile);
-router.post('/edit-profile', indexController.editProfile); 
+router.post('/edit-profile',upload.single('img'), indexController.editProfile); 
 router.get('/edit-profile/:id', indexController.vistaEditProfile); 
 
-router.post('/add-product', indexController.addProduct);
+router.post('/add-product',upload.single('imagen'), indexController.addProduct);
 router.get('/add-product', indexController.vistaAddProduct); //le agregamos :id ????
-router.post('/edit-product',  indexController.editProduct);
+router.post('/edit-product', upload.single('imagen'), indexController.editProduct);
 router.get('/edit-product/:id', indexController.vistaEditProduct);
 router.post('/delete-product', indexController.deleteProduct);
 

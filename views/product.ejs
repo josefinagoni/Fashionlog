@@ -14,6 +14,8 @@
 			<p class="product-detail-description"> de
 				<a href="/index/profile"> <%= usuario.nombre%></a>
 			</p>
+			<% if (logueado &&  miUsuario.id == usuario.id) { %>
+		
 			<p class="product-detail-description">
 				<a href="/index/edit-product/<%= producto.id %>" class="edit">Editar</a>
 			</p>
@@ -25,7 +27,7 @@
 					<button class="button"><i class="far fa-trash-alt trashcan"></i></button>
 				</form>
 			</p>
-			
+			<% } %>
 		</div>
 		<div class="product-detail">
 			<div class="row">
