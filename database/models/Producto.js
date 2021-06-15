@@ -14,11 +14,12 @@ module.exports = (sequelize, dataTypes) => {
            
        // },
        
-        descripcion: {
-            type: dataTypes.STRING
-        },
+        
         usuario_id : {
             type: dataTypes.INTEGER
+        },
+        descripcion: {
+            type: dataTypes.STRING
         },
         createdAt: {
             type: dataTypes.DATE
