@@ -117,11 +117,11 @@ const controlador = {
             nombre: productoNuevo,//,descripcion: req.body.descripcion como va en el form
             imagen: req.file.filename,
             descripcion: req.body.descripcion,
-            usuario_id: req.session.usuario //chequear esta linea
+            usuario_id: req.session.usuario.id //chequear esta linea
 
 
         }).then(productoCreado => {
-            res.redirect('index/product/' + productoCreado.id);
+            res.redirect('/index' );
         });
       //  }
        
