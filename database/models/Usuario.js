@@ -25,12 +25,16 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
             
         },
+        imagen: {
+            type: dataTypes.STRING
+        },
         createdAt:{
             type: dataTypes.DATE
         },
         updatedAt: {
             type: dataTypes.DATE
         }
+        
             
         
     }, {
