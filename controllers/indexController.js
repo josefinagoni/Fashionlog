@@ -32,13 +32,13 @@ const controlador = {
     product: (req, res) => {
         const filtro = {
             include: [
-                {association: 'comentario', include: 'usuario'} 
+                {association: 'comentario', include:[{ association: 'usuario' }]}, {association: 'usuario'}
             ]
 
         }
         db.Producto.findByPk(req.params.id, filtro).then(resultado =>{
             if(resultado){
-                res.render('product',{producto: resultado})
+                res.render('product',{producto: resultado, usuario: resultado.usuario, comentario: resultado.comentario})
             }
             else{res.render('index', {error: "No existe el producto: " + error.message});}
            
