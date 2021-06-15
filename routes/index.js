@@ -7,13 +7,17 @@ let searchController = require('../controllers/searchController');
 const multer = require('multer');
 const path = require('path');
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      let rutaDirectorio = 'public/images/nuevasimagenes';
-      cb(null, rutaDirectorio);
-    },
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../public/images/products/'))
+  },
+    // destination: (req, file, cb) => {
+    //   let rutaDirectorio = '/public/images/nuevasimagenes';
+    //   cb(null, rutaDirectorio);
+    // },
     filename: (req, file, cb) => {
-      let nombreArchivo = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
-      cb(null, nombreArchivo);
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      // let nombreArchivo = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+      // cb(null, nombreArchivo);
     }
   });
   
