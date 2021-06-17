@@ -16,7 +16,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= producto.nombre%></h2> 
 			<p class="product-detail-description"> de
-				<a href="/index/profile"> <%= usuario.nombre%></a>
+				<a href="/index/profile/<%= usuario.id%>"> <%= usuario.nombre%></a>
 			</p>
 			<% if (logueado &&  miUsuario.id == usuario.id) { %>
 		

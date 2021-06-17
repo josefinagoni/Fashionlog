@@ -15,12 +15,12 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="/images/fotoperfil-usuario.jpeg" alt="foto de perfil" class="foto-perfil">
+				<img src="<%= usuario.imagen %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<a href="http://localhost:3000/index/edit-profile">
-					<h1 class="main-title"> Belen Martinez 
+					<a href="/index/edit-profile">
+					<h1 class="main-title"> <%=usuario.nombre%>
 						
 							<i class="fas fa-cog"></i>
 						
@@ -47,14 +47,13 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<% for (let index = 2; index < 10; index++) { %>
-				<% const element = productos[index] ; %>
-
+			
+				<% producto.forEach(element => { %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/index/product-log/<%=element.id%>">
+					<a href="/index/product/<%=element.id%>">
 						<figure class="product-box_image">
-							<img class="product-image" src=" <%= element.cover %>" alt="">
+							<img class="product-image" src=" <%= element.imagen %>" alt="">
 						</figure>
 						<article class="product-box_data">
 							<h2><%= element.nombre %></h2>
@@ -66,110 +65,7 @@
 			</div>
 			<% }%> 
 
-			<!--
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto2.jpeg" alt="campera cuero">
-						</figure>
-						<article class="product-box_data">
-							<h2>Campera Rapsodia</h2>
-							<p>Campera de cuero negra con mangas tres cuartos</p>
-							<p>Comentarios: 5</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto3.jpeg" alt="pantalon cuero">
-						</figure>
-						<article class="product-box_data">
-							<h2>Pantalon Zara</h2>
-							<p>Pantalon de cuero original chupin</p>
-							<p>Comentarios: 22</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto4.jpeg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Campera Zara</h2>
-							<p>Campera de Jean color negra</p>
-							<p>Comentarios: 9</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto5.jpeg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera Forever XXI</h2>
-							<p>Remera negra basica</p>
-							<p>Comentarios: 2</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto6.jpeg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto7.jpeg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/index/product">
-						<figure class="product-box_image">
-							<img class="product-image" src="/images/producto8.jpeg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
-	</div>-->
+			
 	
 
 

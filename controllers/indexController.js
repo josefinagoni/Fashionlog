@@ -81,7 +81,24 @@ const controlador = {
     },
 
     profile: (req, res) => {
-        res.render('profile', {productos: productos.lista})
+        const filtro = {
+            include: [
+                {association: 'productos'}, {association: 'comentario'}
+            ]};
+            db.Usuario.findAll(req.params.id, filtro).then(resultado =>{
+                if(resultado){
+                    res.render('profile',{usuario: resultado, producto: resultado.productos, comentario: resultado.comentario})
+                }
+                else{res.render('index', {error: "No existe el perfil: " + error.message});}
+               
+    
+           })
+           .catch((error) => {
+               console.log(error)
+           
+        });
+    
+            
     },
     editProfile: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña); //hay que poner esto aca??
