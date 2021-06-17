@@ -4,7 +4,11 @@
 <%- include('../views/partials/head') %>
 <body>
 	<!-- Header -->
-<%- include('../views/partials/header') %>
+	<% if(!logueado) { %>
+		<%- include('../views/partials/header') %>
+		<% } else { %>
+		<%- include('../views/partials/headerlog') %>	
+		<% } %>
 	<!-- /Header -->
 
 	<!-- product detail -->

@@ -43,12 +43,12 @@ ON usuario_id = productos.usuario_id ;
 SELECT usuarios.id FROM usuarios
 INNER JOIN comentarios
 ON usuarios.id = comentarios.usuario_id ;
-select*from usuarios;
+-- select*from usuarios;
 
 SELECT productos.id FROM productos
 INNER JOIN comentarios
 ON productos.id = comentarios.producto_id ;
-Select*from productos;
+-- Select*from productos;
 
 insert into usuarios values (default, 'Sofia Gonzalez', '2001-04-21', 'sofig01@gmail.com', 'sofi123', 4958423,'fotoperfil1.jpeg', '2016-07-04 03:00:00','2016-07-04 03:00:00' ) ;
 insert into usuarios values (default, 'Maria Sanchez', '2001-09-21', 'sanchezmaria@hotmail.com', 'mariacapa100', 4958423,'fotoperfil2.jpeg', '2016-07-04 03:00:00','2016-07-04 03:00:00' ) ;
