@@ -55,10 +55,17 @@
 						
 
 					</section>
+					<% if(!logueado) { %>
 					<form class="form" action="/index/product/:id/comentario" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
+					<% } else { %>
+						<form class="form" action="/index/login" method="GET">
+							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+					<% } %>
 				</div>
 					
 					<hr>
