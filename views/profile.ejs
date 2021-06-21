@@ -18,8 +18,9 @@
 				<img src="<%= usuario.imagen %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
+				<% if (logueado &&  miUsuario.id == usuario.id) { %>
 				<div class="d-flex align-items-center ">
-					<a href="/index/edit-profile">
+					<a href="/index/edit-profile"> <% } %>
 					<h1 class="main-title"> <%=usuario.nombre%>
 						
 							<i class="fas fa-cog"></i>
