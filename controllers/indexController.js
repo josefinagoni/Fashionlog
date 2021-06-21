@@ -7,14 +7,15 @@ const controlador = {
     
     index: (req, res) => {
         
-       
-            
-        
-        db.Producto.findAll().then(resultado => {
+        const filtro = {
+            include: [
+                {association: 'usuario'}, {association: 'comentario'}
+            ]};
+        db.Producto.findAll(filtro).then(resultado => {
             
            
             
-                res.render('index', { productos: resultado, error: null});
+                res.render('index', { productos: resultado, error: null, usuario: resultado.usuario });
             
                
             
