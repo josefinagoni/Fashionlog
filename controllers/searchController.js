@@ -29,7 +29,7 @@ module.exports = {
             
         }).catch(error => {
             console.log("Error de conexion: " + error.message);
-            res.render('index', {
+            res.render('search', {
                 error: "No existe el producto"
             });
         });
