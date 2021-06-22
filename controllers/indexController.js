@@ -16,17 +16,12 @@ const controlador = {
             order: [["producto","createdAt", "DESC"]]
         };
         db.Producto.findAll(filtro).then(resultado => {
-
-
-
                 res.render('index', {
                     productos: resultado,
-                    error: null
+                    error: null,
+                    usuario: resultado.usuario,
+                    comentario: resultado.comentario
                 });
-
-
-
-
             })
             .catch(error => {
                 console.log("Error de conexion: " + error.message);
