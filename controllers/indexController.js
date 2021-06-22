@@ -13,10 +13,9 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-            order: [["producto","createdAt", "DESC"]]
+         //   order: [["producto","createdAt", "DESC"]]
         };
         db.Producto.findAll(filtro).then(resultado => {
-
 
 
                 res.render('index', {
