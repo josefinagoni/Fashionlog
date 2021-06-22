@@ -20,7 +20,12 @@ module.exports = {
             res.render('search', {lista: resultado, error: null,
                 usuario: resultado.usuario,
                 comentario: resultado.comentario});
-        })
+        }).catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {
+                error: "No existe el producto"
+            });
+        });
         
     }
 };
