@@ -16,11 +16,8 @@ const controlador = {
          //   order: [["producto","createdAt", "DESC"]]
         };
         db.Producto.findAll(filtro).then(resultado => {
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 7d7dbef8eebece27d707a3e780b4579f163f7d95
                 res.render('index', {
                     productos: resultado,
                     error: null,
