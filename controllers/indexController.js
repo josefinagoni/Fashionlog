@@ -12,7 +12,8 @@ const controlador = {
                 association: 'usuario'
             }, {
                 association: 'comentario'
-            }]
+            }],
+            order: [["producto","createdAt", "DESC"]]
         };
         db.Producto.findAll(filtro).then(resultado => {
 
