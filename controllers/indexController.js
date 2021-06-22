@@ -45,10 +45,11 @@ const controlador = {
                 include: [{
                     association: 'usuario'
                 }]
+                
             }, {
                 association: 'usuario'
-            }]
-
+            }],
+            order: [["comentario","createdAt", "DESC"]]
         }
         db.Producto.findByPk(req.params.id, filtro).then(resultado => {
                 if (resultado) {
@@ -191,27 +192,45 @@ const controlador = {
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
-        // if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.body.img) {
-        //   errors.message = "hay que llenar todos los campos"
-        //     res.locals.errors = errors
-        //     return res.render("register")
-        // }
+         if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.file) {
+           errors.message = "hay que llenar todos los campos"
+             res.locals.errors = errors
+             return res.render("register")
+         };
 
-        db.Usuario.create({
-            nombre: req.body.nombre,
-            nacimiento: req.body.fechanac,
-            email: req.body.email,
-            contrasena: passEncriptada,
-            dni: req.body.dni,
-            imagen: req.file.filename
-        }).then(usuario => {
-            req.session.usuario = {
-                id: usuario.id,
-                nombre: usuario.nombre,
-                imagen: usuario.imagen
+         db.Usuario.findOne({
+            where: {
+                email: req.body.email
             }
-            res.redirect('/index')
-        })
+         }).then(resultado => {
+             if (resultado) {
+                errors.message = "este mail ya fue usado"
+                res.locals.errors = errors
+                return res.render("register")
+             }else {
+                db.Usuario.create({
+                    nombre: req.body.nombre,
+                    nacimiento: req.body.fechanac,
+                    email: req.body.email,
+                    contrasena: passEncriptada,
+                    dni: req.body.dni,
+                    imagen: req.file.filename
+                }).then(usuario => {
+                    req.session.usuario = {
+                        id: usuario.id,
+                        nombre: usuario.nombre,
+                        imagen: usuario.imagen
+                    }
+                    if (req.body.remember) {
+                        res.cookie("userId", usuario.id, {
+                            maxAge: 1000 * 60 * 5
+                        })
+                    }
+                    res.redirect('/index')
+                })
+             }
+         })
+
 
     },
     loginValidate: (req, res) => {
@@ -230,6 +249,11 @@ const controlador = {
                     id: usuario.id,
                     nombre: usuario.nombre,
                     imagen: usuario.imagen
+                }
+                if (req.body.remember) {
+                    res.cookie("userId", usuario.id, {
+                        maxAge: 1000 * 60 * 5
+                    })
                 }
                 res.redirect('/index')
 
