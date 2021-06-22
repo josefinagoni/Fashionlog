@@ -110,7 +110,10 @@ const controlador = {
     profile: (req, res) => {
         const filtro = {
             include: [{
-                association: 'productos'
+                association: 'productos',
+                include:[{
+                    association: "comentario"
+                }]
             }, {
                 association: 'comentario'
             }]
@@ -124,7 +127,7 @@ const controlador = {
                     })
                 } else {
                     res.render('index', {
-                        error: "No existe el perfil: " + error.message
+                        error: "No existe el perfil: "
                     });
                 }
 
@@ -188,11 +191,11 @@ const controlador = {
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
-        if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.body.img) {
-            errors.message = "hay que llenar todos los campos"
-            res.locals.errors = errors
-            return res.render("register")
-        }
+        // if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.body.img) {
+        //   errors.message = "hay que llenar todos los campos"
+        //     res.locals.errors = errors
+        //     return res.render("register")
+        // }
 
         db.Usuario.create({
             nombre: req.body.nombre,
@@ -204,7 +207,8 @@ const controlador = {
         }).then(usuario => {
             req.session.usuario = {
                 id: usuario.id,
-                nombre: usuario.nombre
+                nombre: usuario.nombre,
+                imagen: usuario.imagen
             }
             res.redirect('/index')
         })
@@ -224,7 +228,8 @@ const controlador = {
             if (bcrypt.compareSync(req.body.contraseña, usuario.contrasena) && usuario) {
                 req.session.usuario = {
                     id: usuario.id,
-                    nombre: usuario.nombre
+                    nombre: usuario.nombre,
+                    imagen: usuario.imagen
                 }
                 res.redirect('/index')
 

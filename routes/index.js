@@ -31,17 +31,6 @@ router.get('/product/:id', indexController.product);
 router.post('/product/comentario', indexController.productComentario);
 router.post('/delete-comentario' , indexController.borrarComentario);
 
-router.get('/login', indexController.login);
-router.post('/login', indexController.loginValidate);
-router.post('/logout', indexController.logout);
-
-router.get('/register', indexController.register);
-router.post('/register', upload.single('img'),indexController.registerCreateUser);
-
-router.get('/profile/:id', indexController.profile);
-router.post('/edit-profile',upload.single('img'), indexController.editProfile); 
-router.get('/edit-profile/:id', indexController.vistaEditProfile); 
-
 router.post('/add-product',upload.single('imagen'), indexController.addProduct);
 router.get('/add-product', indexController.vistaAddProduct); //le agregamos :id ????
 router.post('/edit-product', upload.single('imagen'), indexController.editProduct);

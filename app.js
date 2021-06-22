@@ -7,8 +7,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +39,8 @@ app.use(function(req, res, next) {
     db.Usuario.findByPk(req.cookies.userId).then(resultado => {
       req.session.usuario = {
         id: resultado.id,
-        nombre: resultado.nombre
+        nombre: resultado.nombre,
+        imagen: resultado.imagen
     };
       //ver si mail esta bien
       return next();
@@ -65,6 +68,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/index', indexRouter);
+app.use('/index', usersRouter);
 
 
 
