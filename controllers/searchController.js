@@ -8,10 +8,24 @@ module.exports = {
             where: {
                 nombre: {[Op.like]:'%' + req.query.search + '%'}
             }
-        }
-        db.Producto.findAll(buscar).then(resultado => {
-            res.render('search', {lista: resultado});
-        })
-        ;
+        };
+        const filtro = {
+            include: [{
+                association: 'usuario'
+            }, {
+                association: 'comentario'
+            }],
+        };
+        db.Producto.findAll(buscar, filtro).then(resultado => {
+            res.render('search', {lista: resultado, error: null,
+                usuario: resultado.usuario,
+                comentario: resultado.comentario});
+        }).catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('search', {
+                error: "El producto no existe"
+            });
+        });
+        
     }
 };
