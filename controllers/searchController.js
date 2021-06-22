@@ -7,16 +7,16 @@ module.exports = {
         const buscar = {
             where: {
                 nombre: {[Op.like]:'%' + req.query.search + '%'}
-            }
-        };
-        const filtro = {
+            },
             include: [{
                 association: 'usuario'
             }, {
                 association: 'comentario'
             }],
         };
-        db.Producto.findAll(buscar, filtro).then(resultado => {
+        
+        
+        db.Producto.findAll(buscar).then(resultado => {
             res.render('search', {lista: resultado, error: null,
                 usuario: resultado.usuario,
                 comentario: resultado.comentario});
