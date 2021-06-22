@@ -4,13 +4,14 @@
 
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
+
 <body>
 	<!-- Header -->
 	<% if(!logueado) { %>
-		<%- include('../views/partials/header') %>
-		<% } else { %>
-		<%- include('../views/partials/headerlog') %>	
-		<% } %>
+	<%- include('../views/partials/header') %>
+	<% } else { %>
+	<%- include('../views/partials/headerlog') %>
+	<% } %>
 
 	<!-- /Header -->
 
@@ -22,15 +23,15 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% if(error) {%>
-				<span>Hubo un ERROR: <%=error%></span><br><br><br><br>
-			  <% } %> 
+			<span>Hubo un ERROR: <%=error%></span><br><br><br><br>
+			<% } %>
 
-			<% lista.forEach(element => {%> 
+			<% lista.forEach(element => {%>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/index/product/<%= element.id%>">
 						<figure class="product-box_image">
-							<img  src="/images/products/<%= element.imagen %>" alt="">
+							<img src="/images/products/<%= element.imagen %>" alt="">
 						</figure>
 						<article class="product-box_data">
 							<h2> <%= element.nombre %> </h2>
@@ -43,12 +44,12 @@
 				</section>
 			</div>
 			<% })%>
-        
 
 
-	<!-- footer -->
-<%- include('../views/partials/footer') %>
-<!-- /footer -->
+
+			<!-- footer -->
+			<%- include('../views/partials/footer') %>
+			<!-- /footer -->
 </body>
 
 </html>
