@@ -20,7 +20,12 @@ const controlador = {
 
                 res.render('index', {
                     productos: resultado,
+<<<<<<< HEAD
+                    error: null,
+                    usuario: resultado.usuario
+=======
                     error: null
+>>>>>>> 3e68d6516f91bdba9d276b7cc867b541a4e13290
                 });
 
 
@@ -62,8 +67,13 @@ const controlador = {
                         error: "No existe el producto: " + error.message
                     });
                 }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 3e68d6516f91bdba9d276b7cc867b541a4e13290
             })
             .catch((error) => {
                 console.log(error)
@@ -74,12 +84,21 @@ const controlador = {
     productComentario: (req, res) => {
         db.Comentario.create({
                 texto: req.body.comentario,
+<<<<<<< HEAD
+                usuario_id: req.session.usuario, //chequear validar con condicional de solo si estas logueado
+                product_id: req.params.id // ?? para sacarlo de en que producto estamos va por ruta
+
+
+            }).then(resultado => {
+                res.redirect('/product/' + req.params.id); // a donde registro el id y ruta 
+=======
                 usuario_id: req.session.usuario.id, //chequear validar con condicional de solo si estas logueado
                 producto_id: req.body.id // ?? para sacarlo de en que producto estamos va por ruta
 
 
             }).then(resultado => {
                 res.redirect('/index/product/' + req.body.id); // a donde registro el id y ruta 
+>>>>>>> 3e68d6516f91bdba9d276b7cc867b541a4e13290
             })
             .catch((error) => {
                 res.render('error', {
@@ -118,7 +137,11 @@ const controlador = {
                 association: 'comentario'
             }]
         };
+<<<<<<< HEAD
+        db.Usuario.findAll(req.params.id, filtro).then(resultado => {
+=======
         db.Usuario.findByPk(req.params.id, filtro).then(resultado => {
+>>>>>>> 3e68d6516f91bdba9d276b7cc867b541a4e13290
                 if (resultado) {
                     res.render('profile', {
                         usuario: resultado,
