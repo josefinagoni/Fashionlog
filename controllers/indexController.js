@@ -165,24 +165,35 @@ const controlador = {
         })
     },
     addProduct: (req, res) => {
-        let productoNuevo = req.body.nombre;
+        let errors = {}
+        if (!req.body.nombre || !req.file || !req.body.descripcion) {
+              errors.message = "Debe completar todos los campos para crear un producto"
+                res.locals.errors = errors
+                return res.render("addProduct")
+            };
 
-        //  if (productoNuevo.includes('feo')) {
-        // console.log('El nombre del producto no puede contener la palabra feo') ;
-        // res.render('profile', {error: 'El nombre del producto no puede contener la palabra feo'})
-        //  } else{
-        db.Producto.create({
-            nombre: productoNuevo, //,descripcion: req.body.descripcion como va en el form
-            imagen: req.file.filename,
-            descripcion: req.body.descripcion,
-            usuario_id: req.session.usuario.id //chequear esta linea
-
-
-        }).then(productoCreado => {
-            res.redirect('/index');
-        });
-        //  }
-
+        db.Producto.findOne({
+            where: {
+                nombre: req.body.nombre
+                }
+             }).then(resultado => {
+                if (resultado) {
+                   errors.message = "El nombre del producto ya ha sido utilizado"
+                   res.locals.errors = errors
+                   return res.render("register")
+                }else{
+                    db.Producto.create({
+                    nombre: req.body.nombre,
+                    imagen: req.file.filename,
+                    descripcion: req.body.descripcion,
+                    usuario_id: req.session.usuario.id 
+        
+        
+                }).then(productoCreado => {
+                    res.redirect('/index') ///product/'+ productoCreado.id); ver si dirige bien
+                });
+            }
+        })
     },
     vistaAddProduct: (req, res) => {
         res.render('addProduct')
