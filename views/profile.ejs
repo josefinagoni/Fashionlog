@@ -2,13 +2,14 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
+
 <body>
 	<!-- Header -->
 	<% if(!logueado) { %>
-		<%- include('../views/partials/header') %>
-		<% } else { %>
-		<%- include('../views/partials/headerlog') %>	
-		<% } %>
+	<%- include('../views/partials/header') %>
+	<% } else { %>
+	<%- include('../views/partials/headerlog') %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
@@ -21,19 +22,18 @@
 				<% if (logueado &&  miUsuario.id == usuario.id) { %>
 				<div class="d-flex align-items-center ">
 					<a href="/index/edit-profile"> <% } %>
-					<h1 class="main-title"> <%=usuario.nombre%>
-						
+						<h1 class="main-title"> <%=usuario.nombre%>
+
 							<i class="fas fa-cog"></i>
-						
-					</h1>
-				</a>
+
+						</h1>
+					</a>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
 				<div>
 					<ul class="">
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li> <%= usuario.productos.length %> productos </li>
+						<li><%= usuario.comentario.length %> comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -48,8 +48,8 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			
-				<% producto.forEach(element => { %>
+
+			<% producto.forEach(element => { %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/index/product/<%=element.id%>">
@@ -64,15 +64,16 @@
 					</a>
 				</section>
 			</div>
-			<% }%> 
+			<% })%>
+		</div>
+	</div>
 
-			
-	
 
 
-<!-- footer -->
- <%- include('../views/partials/footer') %>
-<!-- /footer -->
+	<!-- footer -->
+	<%- include('../views/partials/footer') %>
+	<!-- /footer -->
 
-</body>	
+</body>
+
 </html>
