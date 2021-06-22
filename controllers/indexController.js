@@ -54,12 +54,12 @@ const controlador = {
     productComentario: (req, res) =>{
         db.Comentario.create({
             texto: req.body.comentario,
-            usuario_id: req.session.usuario, //chequear validar con condicional de solo si estas logueado
-            product_id: req.params.id // ?? para sacarlo de en que producto estamos va por ruta
+            usuario_id: req.session.usuario.id, //chequear validar con condicional de solo si estas logueado
+            product_id: req.body.id // ?? para sacarlo de en que producto estamos va por ruta
 
 
         }).then(resultado => {
-            res.redirect('/product/' + req.params.id); // a donde registro el id y ruta 
+            res.redirect('/product/' + req.body.id); // a donde registro el id y ruta 
         })
         .catch((error) => {
             res.render ('error', {error: "Error de conexion: " + error.message});

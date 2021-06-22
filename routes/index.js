@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 
 router.get('/', indexController.index);
 router.get('/product/:id', indexController.product);
-router.post('/product/:id/comentario', indexController.productComentario);
+router.post('/product/comentario', indexController.productComentario);
 router.post('/delete-comentario' , indexController.borrarComentario);
 
 router.get('/login', indexController.login);
