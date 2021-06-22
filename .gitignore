@@ -104,3 +104,4 @@ dist
 .tern-port
 database/config/config.js
 database/config/config.js
+controllers/indexController.js
