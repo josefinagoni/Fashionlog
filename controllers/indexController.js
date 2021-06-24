@@ -190,7 +190,7 @@ const controlador = {
         
         
                 }).then(productoCreado => {
-                    res.redirect('/index') ///product/'+ productoCreado.id); ver si dirige bien
+                    res.redirect('/index') 
                 });
             }
         })
@@ -268,13 +268,10 @@ const controlador = {
 
                 // En caso de que haya seleccionado recodarme, guardamos una cookie
             } else {
-                res.render('index', {
+                res.render('login', {
                     error: "El mail o la contrseña son incorrectos"
                 })
             }
-            //  if(req.body.remember){
-            //    res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
-            // }
 
         });
 
