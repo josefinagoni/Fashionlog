@@ -283,7 +283,7 @@ const controlador = {
                 // En caso de que haya seleccionado recodarme, guardamos una cookie
             } else {
                 res.render('login', {
-                    error: "El mail o la contrseña son incorrectos"
+                 error: "El mail o la contrseña son incorrectos"
                 })
             }
 
