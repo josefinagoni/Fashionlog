@@ -17,20 +17,21 @@ module.exports = {
         
         
         db.Producto.findAll(buscar).then(resultado => {
-            if (resultado) {
+            if (resultado.length > 0) {
                 res.render('search', {lista: resultado, error: null,
                 usuario: resultado.usuario,
                 comentario: resultado.comentario});
-            }else{
+            }else {
                 res.render('search', {
+                    lista : [ ],
                     error: "No existe el producto "
                 });
-            }
+        }
             
         }).catch(error => {
             console.log("Error de conexion: " + error.message);
             res.render('search', {
-                error: "No existe el producto"
+                error: "Error de conexion"
             });
         });
         

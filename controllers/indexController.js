@@ -13,18 +13,32 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-         //   order: [["producto","createdAt", "DESC"]]
+            orderBy: [["producto","createdAt", "DESC"]]
         };
+        const filtro2 = {
+            include: [{
+                association: 'usuario'
+            }, {
+                association: 'comentario'
+            }],
+            orderBy: [["producto","createdAt", "DESC"]]
+        };
+        
+        
         db.Producto.findAll(filtro).then(resultado => {
+            db.Producto.findAll(filtro2).then(resultado2 => {
 
 
                 res.render('index', {
                     productos: resultado,
                     error: null,
                     usuario: resultado.usuario,
-                    comentario: resultado.comentario
+                    comentario: resultado.comentario,
+                    productos2: resultado2,
+             
                 });
             })
+        })
             .catch(error => {
                 console.log("Error de conexion: " + error.message);
                 res.render('index', {
@@ -190,11 +204,7 @@ const controlador = {
         
         
                 }).then(productoCreado => {
-<<<<<<< HEAD
-                    res.redirect('/index') 
-=======
                     res.redirect('/index/product/' + productoCreado.id) ///product/'+ productoCreado.id); ver si dirige bien
->>>>>>> 6f1551e6a2ce2a6e4badc8557625baffb6d3a329
                 });
             }
         })
@@ -257,7 +267,7 @@ const controlador = {
         db.Usuario.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
-            if (bcrypt.compareSync(req.body.contraseña, usuario.contrasena) && usuario) {
+            if (usuario  && bcrypt.compareSync(req.body.contraseña, usuario.contrasena)  ) {
                 req.session.usuario = {
                     id: usuario.id,
                     nombre: usuario.nombre,
