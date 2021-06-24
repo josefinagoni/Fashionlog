@@ -21,24 +21,25 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-            orderBy: [["producto","createdAt", "DESC"]]
+            orderBy: [["producto","createdAt", "ASC"]]
         };
         
         
         db.Producto.findAll(filtro).then(resultado => {
             db.Producto.findAll(filtro2).then(resultado2 => {
-
+                
 
                 res.render('index', {
                     productos: resultado,
                     error: null,
-                    usuario: resultado.usuario,
-                    comentario: resultado.comentario,
+                    //usuario: resultado.usuario,
+                    //comentario: resultado.comentario,
                     productos2: resultado2,
              
                 });
             })
         })
+        
             .catch(error => {
                 console.log("Error de conexion: " + error.message);
                 res.render('index', {
