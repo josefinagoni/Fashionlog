@@ -22,7 +22,11 @@
 			<form class="container-form-edit" action="/index/add-product" method="POST" enctype='multipart/form-data' >
 				<input type="file" name="productoAgregado">	
 				<h2 class="titulo">AGREGA UN PRODUCTO</h2>
-
+				<% if(locals.errors) {%>
+					<p style="color:red">
+						<%= errors.message %> 
+					</p>
+				  <% } %> 
 				<p>
 					
 					<input type="text" name="nombre" id="nombre" class="nombre"placeholder="nombre del producto"> 
