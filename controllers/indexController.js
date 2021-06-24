@@ -190,7 +190,7 @@ const controlador = {
         
         
                 }).then(productoCreado => {
-                    res.redirect('/index') ///product/'+ productoCreado.id); ver si dirige bien
+                    res.redirect('/index/product/' + productoCreado.id) ///product/'+ productoCreado.id); ver si dirige bien
                 });
             }
         })
