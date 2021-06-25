@@ -16,9 +16,9 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= producto.nombre%></h2> 
 			<p class="product-detail-description"> de
-				<a href="/index/profile/<%= usuario.id%>"> <%= usuario.nombre%></a>
+				<a href="/index/profile/<%= producto.usuario.id%>"> <%= producto.usuario.nombre%></a>
 			</p>
-			<% if (logueado &&  miUsuario.id == usuario.id) { %>
+			<% if (logueado &&  miUsuario.id == producto.usuario.id) { %>
 		
 			<p class="product-detail-description">
 				<a href="/index/edit-product/<%= producto.id %>" class="edit">Editar producto</a>
@@ -42,7 +42,7 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% comentario.forEach(element => { %>
+						<% producto.comentario.forEach(element => { %>
 							<article>
 								<img src="/images/users/<%= element.usuario.imagen %>" alt="">
 								<div class="data">
