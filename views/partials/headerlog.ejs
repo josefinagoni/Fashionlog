@@ -42,11 +42,13 @@
 			
             <ul class="right-navbar right-logueado">
                 
+                <ul class="grid-user">
                 <li class="nombre-usuario">
-                    
-                <a href="/index/profile/<%= miUsuario.id %>"><img src="/images/users/<%= miUsuario.imagen %>" alt="foto de perfil" class="fotousuario" >
-                    <%=  miUsuario.nombre %></a></li>
+                <a href="/index/profile/<%= miUsuario.id %>" ><img src="/images/users/<%= miUsuario.imagen %>" alt="foto de perfil" class="fotousuario" ></a></li>
+                 <li class="nombre-usuario"> <h3 class= "nombre-user"><%=  miUsuario.nombre %></h3></li>
+                </ul>
                 <li>
+                
                     <div class="crea">
                        <!--  <a href="/index" class="direc">
                         <form>
@@ -61,7 +63,7 @@
 
                       <form action="/index/logout" method="post">
                         <button class="logout" type="submit">
-                            Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+                            Logout <i class="fas fa-sign-in-alt"></i>
                         </button>
                     </form>
                    </div>
