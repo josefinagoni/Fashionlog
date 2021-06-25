@@ -307,19 +307,35 @@ const controlador = {
         })
     },
     editProduct: (req, res) => {
+        let errors = {}
+        if (!req.body.nombre || !req.file || !req.body.descripcion) {
+              errors.message = "Debe completar todos los campos para editar el producto"
+                res.locals.errors = errors
+                return res.render("editProduct")
+            };
+        db.Producto.findOne({
+            where: {
+                nombre: req.body.nombre
+                }
+                }).then(resultado => {
+            if (resultado) {
+                errors.message = "El nombre del producto ya ha sido utilizado"
+                res.locals.errors = errors
+            return res.render("editProduct")
+            }else{ 
         db.Producto.update({
             nombre: req.body.nombre,
             imagen: req.file.filename,
             descripcion: req.body.descripcion,
-
-
-        }, {
+            }, {
             where: {
                 id: req.body.id
             }
         }).then(resultado => {
             res.redirect('/index/product/' + resultado.id)
-        })
+        });
+    }
+    }) 
     },
     deleteProduct: (req, res) => {
         db.Producto.destroy({
@@ -330,6 +346,7 @@ const controlador = {
             res.redirect('/index')
         })
     }
+
 };
 
 module.exports = controlador;
