@@ -23,9 +23,13 @@ module.exports = {
                 lista: resultado,
                 error: null,
                 usuario: resultado.usuario,
-                comentario: resultado.comentario
+                comentario: resultado.comentario});
+        }).catch(error => {
+            console.log("Error de conexion: " + error.message);
+            res.render('index', {
+                error: "No existe el producto"
             });
-        })
-
+        });
+        
     }
 };
