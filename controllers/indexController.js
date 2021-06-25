@@ -13,7 +13,7 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-            orderBy: [["producto","createdAt", "DESC"]]
+            order: [["createdAt", "DESC"]]
         };
         const filtro2 = {
             include: [{
@@ -21,7 +21,7 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-            orderBy: [["producto","createdAt", "ASC"]]
+            order: [["createdAt", "ASC"]]
         };
         
         
@@ -205,7 +205,7 @@ const controlador = {
                 if (resultado) {
                    errors.message = "El nombre del producto ya ha sido utilizado"
                    res.locals.errors = errors
-                   return res.render("register")
+                   return res.render("addProduct")
                 }else{
                     db.Producto.create({
                     nombre: req.body.nombre,

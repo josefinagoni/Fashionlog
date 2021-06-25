@@ -2,61 +2,66 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
+
 <body class="login-background">
 	<!-- Header -->
 	<% if(!logueado) { %>
-		<%- include('../views/partials/header') %>
-		<% } else { %>
-		<%- include('../views/partials/headerlog') %>	
-		<% } %>
+	<%- include('../views/partials/header') %>
+	<% } else { %>
+	<%- include('../views/partials/headerlog') %>
+	<% } %>
 
 	<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			
+
 			<!-- Show the "ultimos" products -->
 			<div class="container-login">
-			
-			<form class="container-form-login" action="" method="post">
-				<h2 class="titulo">login</h2>
-			  <p>
-				<% if (error) { %>
-					<p id="error" class="error-login"><%=error%></p>
-				<% } %>
-				
-				 <input type="email" name="email" id="email" class="email" placeholder="email" required>
-			  </p>
-			  <p>
-				 
-				 <input type="password" class="pwd" name="contraseña" id=contraseña required placeholder="contraseña">
 
-				</p class="rec-total">
-				<strong class="rec-texto">RECORDAME</strong>  <input type="checkbox" name="remember" id="" class="rec-boton"><br>	
-				<br/>
-				<br/>
-				<p><input class="submit" type="submit" value="Login"></p>	
-			</form>
-			<div class="container-login-extra">
-				<ul class="login-grid">
-					<li class="login-extra"> Sos nueva?</li>
-				
-					<li class="login-extra"><a href="/index/register"> Registrate aquí </a></li>
-				</ul>
+				<form class="container-form-login" action="" method="post">
+					<h2 class="titulo">login</h2>
+					<p>
+						<% if (error) { %>
+						<p id="error" class="error-login"><%=error%></p>
+						<% } %>
+
+						<input type="email" name="email" id="email" class="email" placeholder="email" required>
+					</p>
+					<p>
+
+						<input type="password" class="pwd" name="contraseña" id=contraseña required
+							placeholder="contraseña">
+
+					</p class="rec-total">
+					<strong class="rec-texto">RECORDAME</strong> <input type="checkbox" name="remember" id=""
+						class="rec-boton"><br>
+					<br />
+					<br />
+					<p><input class="submit" type="submit" value="Login"></p>
+				</form>
+				<div class="container-login-extra">
+					<ul class="login-grid">
+						<li class="login-extra"> Sos nueva?</li>
+
+						<li class="login-extra"><a href="/index/register"> Registrate aquí </a></li>
+					</ul>
+				</div>
+
+
+
 			</div>
-
-		
-
 		</div>
-			
-			
+	</div>
 
 
 
-<!-- footer -->
-<%- include('../views/partials/footer') %>
-<!-- /footer -->
+
+
+	<!-- footer -->
+	<%- include('../views/partials/footer') %>
+	<!-- /footer -->
 </body>
 
 </html>

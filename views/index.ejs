@@ -14,8 +14,9 @@
 	<% if(error) {%>
 		<span>Hubo un ERROR: <%=error%></span><br><br><br><br>
 	  <% } %> 
-
+	 
 	<!-- Banner -->
+
 	<div class="banner">
 		
 			<img src="" alt="">
@@ -26,7 +27,11 @@
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
+
 		<div class="row">
+			<% if(logueado) {%>
+				<h1 class="products-title"style="text-transform: uppercase; text-align: center;"> Bienvenid@ <%=miUsuario.nombre%> <%=miUsuario.apellido%></h1><br><br><br><br>
+			  <% } %> 
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
 			</div>
@@ -59,7 +64,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
+				<h2 class="products-title">Más viejos</h2>
 			</div>
 			<% for (let index = 4; index < 8; index++) { %>
 				<% const element = productos2[index] ; %> 
