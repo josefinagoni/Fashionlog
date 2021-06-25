@@ -24,10 +24,17 @@ module.exports = {
                 error: null,
                 usuario: resultado.usuario,
                 comentario: resultado.comentario});
+            }else {
+                res.render('search', {
+                    lista : [ ],
+                    error: "No existe el producto "
+                });
+        }
+            
         }).catch(error => {
             console.log("Error de conexion: " + error.message);
-            res.render('index', {
-                error: "No existe el producto"
+            res.render('search', {
+                error: "Error de conexion"
             });
         });
         

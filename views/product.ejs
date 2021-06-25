@@ -21,7 +21,7 @@
 			<% if (logueado &&  miUsuario.id == usuario.id) { %>
 		
 			<p class="product-detail-description">
-				<a href="/index/edit-product/<%= producto.id %>" class="edit">Editar</a>
+				<a href="/index/edit-product/<%= producto.id %>" class="edit">Editar producto</a>
 			</p>
 			<p class="divider">|</p>
 			<p>
@@ -47,7 +47,7 @@
 								<img src="/images/users/<%= element.usuario.imagen %>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong> <a href="/index/profile"> <%= element.usuario.nombre %> : </a> </strong>
+										<strong> <a href="/index/profile/<%= element.usuario.id %>"> <%= element.usuario.nombre %> : </a> </strong>
 										<%= element.texto %> </p>
 										<p> <%= element.createdAt %> </p>
 								</div>

@@ -13,18 +13,33 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-         //   order: [["producto","createdAt", "DESC"]]
+            orderBy: [["producto","createdAt", "DESC"]]
         };
+        const filtro2 = {
+            include: [{
+                association: 'usuario'
+            }, {
+                association: 'comentario'
+            }],
+            orderBy: [["producto","createdAt", "ASC"]]
+        };
+        
+        
         db.Producto.findAll(filtro).then(resultado => {
-
+            db.Producto.findAll(filtro2).then(resultado2 => {
+                
 
                 res.render('index', {
                     productos: resultado,
                     error: null,
-                    usuario: resultado.usuario,
-                    comentario: resultado.comentario
+                    //usuario: resultado.usuario,
+                    //comentario: resultado.comentario,
+                    productos2: resultado2,
+             
                 });
             })
+        })
+        
             .catch(error => {
                 console.log("Error de conexion: " + error.message);
                 res.render('index', {
@@ -165,24 +180,35 @@ const controlador = {
         })
     },
     addProduct: (req, res) => {
-        let productoNuevo = req.body.nombre;
+        let errors = {}
+        if (!req.body.nombre || !req.file || !req.body.descripcion) {
+              errors.message = "Debe completar todos los campos para crear un producto"
+                res.locals.errors = errors
+                return res.render("addProduct")
+            };
 
-        //  if (productoNuevo.includes('feo')) {
-        // console.log('El nombre del producto no puede contener la palabra feo') ;
-        // res.render('profile', {error: 'El nombre del producto no puede contener la palabra feo'})
-        //  } else{
-        db.Producto.create({
-            nombre: productoNuevo, //,descripcion: req.body.descripcion como va en el form
-            imagen: req.file.filename,
-            descripcion: req.body.descripcion,
-            usuario_id: req.session.usuario.id //chequear esta linea
-
-
-        }).then(productoCreado => {
-            res.redirect('/index');
-        });
-        //  }
-
+        db.Producto.findOne({
+            where: {
+                nombre: req.body.nombre
+                }
+             }).then(resultado => {
+                if (resultado) {
+                   errors.message = "El nombre del producto ya ha sido utilizado"
+                   res.locals.errors = errors
+                   return res.render("register")
+                }else{
+                    db.Producto.create({
+                    nombre: req.body.nombre,
+                    imagen: req.file.filename,
+                    descripcion: req.body.descripcion,
+                    usuario_id: req.session.usuario.id 
+        
+        
+                }).then(productoCreado => {
+                    res.redirect('/index/product/' + productoCreado.id) ///product/'+ productoCreado.id); ver si dirige bien
+                });
+            }
+        })
     },
     vistaAddProduct: (req, res) => {
         res.render('addProduct')
@@ -242,7 +268,7 @@ const controlador = {
         db.Usuario.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
-            if (bcrypt.compareSync(req.body.contraseña, usuario.contrasena) && usuario) {
+            if (usuario  && bcrypt.compareSync(req.body.contraseña, usuario.contrasena)  ) {
                 req.session.usuario = {
                     id: usuario.id,
                     nombre: usuario.nombre,
@@ -257,13 +283,10 @@ const controlador = {
 
                 // En caso de que haya seleccionado recodarme, guardamos una cookie
             } else {
-                res.render('index', {
-                    error: "El mail o la contrseña son incorrectos"
+                res.render('login', {
+                 error: "El mail o la contrseña son incorrectos"
                 })
             }
-            //  if(req.body.remember){
-            //    res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
-            // }
 
         });
 
