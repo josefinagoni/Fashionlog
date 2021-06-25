@@ -155,7 +155,23 @@ const controlador = {
 
     },
     editProfile: (req, res) => {
-        let passEncriptada = bcrypt.hashSync(req.body.contraseña); //hay que poner esto aca??
+        let passEncriptada = bcrypt.hashSync(req.body.contraseña); 
+        let errors = {}
+        if (!req.body.nombre || !req.email) {
+              errors.message = "Debe igresar su nombre y su email"
+                res.locals.errors = errors
+                return res.render("editProfile")
+            };
+        db.Usuario.findOne({
+            where: {
+                nombre: req.body.email
+                }
+            }).then(resultado => {
+                if (resultado) {
+                    errors.message = "El email ya ha sido utilizado"
+                    res.locals.errors = errors
+                    return res.render("editProfile")
+                 }else{
         db.Usuario.update({
             nombre: req.body.nombre,
             nacimiento: req.body.fechanac,
@@ -169,7 +185,9 @@ const controlador = {
             }
         }).then(resultado => {
             res.redirect('/profile' + resultado.id)
-        })
+        });
+    }
+})
     },
     vistaEditProfile: (req, res) => {
         db.Usuario.findByPk(req.params.id).then(resultado => {
