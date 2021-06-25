@@ -21,11 +21,12 @@
 			<div class="data-container col-6">
 				
 				<div class="d-flex align-items-center ">
-					<a href="/index/edit-profile/<%= usuario.id %>"> 
-						<h1 class="main-title"> <%=usuario.nombre%> </a>
+					
+						<h1 class="main-title"> <%=usuario.nombre%> 
 				<% if (logueado &&  miUsuario.id == usuario.id) { %>
+					<a href="/index/edit-profile/<%= usuario.id %>"> 
 						<i class="fas fa-cog"> Editar mi Perfil</i>
-
+					</a>
 						</h1>
 					
 					<% } %>
