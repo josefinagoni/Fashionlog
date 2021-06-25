@@ -47,6 +47,8 @@ header{
 font-family: var(--title-font-family)
 }
 
+
+
 ul,
 ol {
   list-style: none;
@@ -139,9 +141,18 @@ hr {
   font-weight: bolder;
   font-family: var(--base-font-family);
   font-weight: 300;
+  padding-right: 7px;
   color: var(--white);
 }
+h3.nombre-user{
+font-size: larger;
+}
+.grid-user{
+display: grid;
+grid-template-columns: 30% 60%;
+justify-content: space-between;
 
+}
 .fa , .fas, .fa-fas-cirle{
   font-size: 20px;
   font-weight: 300px;
@@ -197,6 +208,23 @@ hr {
   cursor: pointer;
   font-size: 1em;  
   color: var(--white);
+  display: grid;
+  grid-template-columns: 70% 20%;
+  justify-content: space-between;
+  padding: 5px;
+  padding-right: 5px;
+  font-family: var(--base-font-family)
+}
+.login{
+  background-color: var(--pink);
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 5px;
+  cursor: pointer;
+  font-size: 1.1em;  
+  color: var(--white);
+  font-family: var(--base-font-family);
 }
 
 .logout:hover{
@@ -221,7 +249,7 @@ hr {
   background-color: var(--pink);
   padding-top: 5px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 5px;
   border-radius: 5px;
   font-size: larger;
   padding-bottom: 5px;
