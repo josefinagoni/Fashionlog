@@ -23,7 +23,7 @@
 				<h2 class="titulo">login</h2>
 			  <p>
 				<% if (error) { %>
-					<p id="error"><%=error%></p>
+					<p id="error" class="error-login"><%=error%></p>
 				<% } %>
 				
 				 <input type="email" name="email" id="email" class="email" placeholder="email" required>
@@ -32,8 +32,8 @@
 				 
 				 <input type="password" class="pwd" name="contraseña" id=contraseña required placeholder="contraseña">
 
-				</p>
-				Recordame <input type="checkbox" name="remember" id="" class="email"><br>	
+				</p class="rec-total">
+				<strong class="rec-texto">RECORDAME</strong>  <input type="checkbox" name="remember" id="" class="rec-boton"><br>	
 				<br/>
 				<br/>
 				<p><input class="submit" type="submit" value="Login"></p>	
