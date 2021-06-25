@@ -31,12 +31,12 @@ module.exports = {
                 });
         }
             
-        }).catch(error => {
+        }.catch(error => {
             console.log("Error de conexion: " + error.message);
             res.render('search', {
                 error: "Error de conexion"
             });
         });
         
-    }
-};
+        
+    };
