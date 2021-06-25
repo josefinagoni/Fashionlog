@@ -692,6 +692,30 @@ form.registrarse input[type="submit"]:hover{
   margin-left:auto;
   margin-right: auto;
 }
+.error-login{
+  font-weight: bolder;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: red;
+  margin-left: 25px;
+  font-size: small;
+
+}
+
+.rec-texto{
+  font-family: 'Rubik', sans-serif;
+  font-weight: 200;
+  color:var(--black);
+  margin-left: 25px;
+  font-size: small;
+}
+.rec-register{
+  font-family: 'Rubik', sans-serif;
+  font-weight: 200;
+  color:var(--black);
+  margin-left: 0px;
+  font-size: small;
+}
 
 .register-background{
   background-image: url("/images/login.jpg");
