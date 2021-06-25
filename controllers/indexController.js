@@ -67,9 +67,7 @@ const controlador = {
         db.Producto.findByPk(req.params.id, filtro).then(resultado => {
                 if (resultado) {
                     res.render('product', {
-                        producto: resultado,
-                        usuario: resultado.usuario,
-                        comentario: resultado.comentario
+                        producto: resultado
                     })
                 } else {
                     res.render('index', {
@@ -81,7 +79,7 @@ const controlador = {
             })
             .catch((error) => {
                 console.log(error)
-                //res.render ('error', {error: "Error de conexion: " + error.message});
+                
             });
 
     },
@@ -136,23 +134,17 @@ const controlador = {
                 if (resultado) {
                     res.render('profile', {
                         usuario: resultado,
-                        producto: resultado.productos,
-                        comentario: resultado.comentario
                     })
                 } else {
                     res.render('index', {
                         error: "No existe el perfil: "
                     });
                 }
-
-
             })
             .catch((error) => {
                 console.log(error)
 
             });
-
-
     },
     editProfile: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña); 
