@@ -19,15 +19,15 @@
 				<img src="/images/users/<%= usuario.imagen %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
-				<% if (logueado &&  miUsuario.id == usuario.id) { %>
+				
 				<div class="d-flex align-items-center ">
 					<a href="/index/edit-profile/<%= usuario.id %>"> 
-						<h1 class="main-title"> <%=usuario.nombre%>
-
-							<i class="fas fa-cog"> Editar mi Perfil</i>
+						<h1 class="main-title"> <%=usuario.nombre%> </a>
+				<% if (logueado &&  miUsuario.id == usuario.id) { %>
+						<i class="fas fa-cog"> Editar mi Perfil</i>
 
 						</h1>
-					</a>
+					
 					<% } %>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
