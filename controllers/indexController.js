@@ -148,22 +148,22 @@ const controlador = {
     },
     editProfile: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña); 
-        let errors = {}
-        if (!req.body.nombre || !req.email) {
-              errors.message = "Debe igresar su nombre y su email"
-                res.locals.errors = errors
-                return res.render("editProfile")
-            };
-        db.Usuario.findOne({
-            where: {
-                nombre: req.body.email
-                }
-            }).then(resultado => {
-                if (resultado) {
-                    errors.message = "El email ya ha sido utilizado"
-                    res.locals.errors = errors
-                    return res.render("editProfile")
-                 }else{
+        //let errors = {}
+        //if (!req.body.nombre || !req.email) {
+              //errors.message = "Debe igresar su nombre y su email"
+              //  res.locals.errors = errors
+                //return res.render("editProfile")
+           // };
+        //db.Usuario.findOne({
+          //  where: {
+              //  nombre: req.body.email
+               // }
+           // }).then(resultado => {
+               // if (resultado) {
+                  //  errors.message = "El email ya ha sido utilizado"
+                 //   res.locals.errors = errors
+                    //return res.render("editProfile")
+               //  }else{
         db.Usuario.update({
             nombre: req.body.nombre,
             nacimiento: req.body.fechanac,
@@ -178,8 +178,8 @@ const controlador = {
         }).then(resultado => {
             res.redirect('/profile' + resultado.id)
         });
-    }
-})
+    //}
+//})
     },
     vistaEditProfile: (req, res) => {
         db.Usuario.findByPk(req.params.id).then(resultado => {
@@ -317,22 +317,6 @@ const controlador = {
         })
     },
     editProduct: (req, res) => {
-        let errors = {}
-        if (!req.body.nombre || !req.file || !req.body.descripcion) {
-              errors.message = "Debe completar todos los campos para editar el producto"
-                res.locals.errors = errors
-                return res.render("editProduct")
-            };
-        db.Producto.findOne({
-            where: {
-                nombre: req.body.nombre
-                }
-                }).then(resultado => {
-            if (resultado) {
-                errors.message = "El nombre del producto ya ha sido utilizado"
-                res.locals.errors = errors
-            return res.render("editProduct")
-            }else{ 
         db.Producto.update({
             nombre: req.body.nombre,
             imagen: req.file.filename,
@@ -342,10 +326,9 @@ const controlador = {
                 id: req.body.id
             }
         }).then(resultado => {
-            res.redirect('/index/product/' + resultado.id)
+            res.redirect('/index/product/' + req.body.id)
         });
-    }
-    }) 
+    
     },
     deleteProduct: (req, res) => {
         db.Producto.destroy({
