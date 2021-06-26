@@ -2,77 +2,84 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
+
 <body class="register-background">
 	<!-- Header -->
 	<% if(!logueado) { %>
-		<%- include('../views/partials/header') %>
-		<% } else { %>
-		<%- include('../views/partials/headerlog') %>	
-		<% } %>
+	<%- include('../views/partials/header') %>
+	<% } else { %>
+	<%- include('../views/partials/headerlog') %>
+	<% } %>
 
 	<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			
+
 			<!-- Show the "ultimos" products -->
 			<div class="container-register">
 
-			<form class="container-form-register" action="/index/register" method="POST" enctype="multipart/form-data">
-				<h2 class="titulo">Crea tu cuenta aquí</h2>
-				<% if(locals.errors) {%>
+				<form class="container-form-register" action="/index/register" method="POST"
+					enctype="multipart/form-data">
+					<h2 class="titulo">Crea tu cuenta aquí</h2>
+					<% if(locals.errors) {%>
 					<p style="color:red">
-						<%= errors.message %> 
+						<%= errors.message %>
 					</p>
-				  <% } %> 
-			
-				<p>
-					
-					<input type="text" name="nombre" id="nombre" class="nombre"placeholder="nombre completo"> 
-				</p>
-				<p>
-					
-					<input type="email" name="email" id="mail" class="email"placeholder="EMAIL" required> 
-				</p>
-				<p>
-					
-					<input type="dni" name="dni" id="dni" class="dni"placeholder="DNI" required> 
-				</p>
-				<p>
-					
-					<input type="date" name="fechanac" id="fechanac" class="fecha" placeholder="Fecha de nacimiento" > 
-				</p>
-				<p>
-					
-					<input type="file" name="img" id="contraseña" class="pwd" pattern=".{6,}" placeholder="Imagen" required> 
-				</p>
-				<p>
-					
-					<input type="password" name="contraseña" id="contraseña" class="pwd" pattern=".{6,}" placeholder="Contraseña" required minlength="3"> 
-				</p>
-				<p class="checkbox">
-				<strong class="rec-register">Recordame</strong>  <input type="checkbox" name="remember"  required>  
-                </p> 
-				<br/>
-				<br/>
-				<p><input class="submit" type="submit" value="Register"></p>	
-				
-			</form>
-			<div class="container-register-extra">
-				<ul class="login-grid">
-					<li class="login-extra"> Ya tenes una cuenta?</li>
-				
-					<li class="login-extra"><a href="/index/login"> Ingresá aquí </a></li>
-				</ul>
-			</div>
+					<% } %>
 
+					<p>
+
+						<input type="text" name="nombre" id="nombre" class="nombre" placeholder="nombre completo">
+					</p>
+					<p>
+
+						<input type="email" name="email" id="mail" class="email" placeholder="EMAIL" required>
+					</p>
+					<p>
+
+						<input type="dni" name="dni" id="dni" class="dni" placeholder="DNI" required>
+					</p>
+					<p>
+
+						<input type="date" name="fechanac" id="fechanac" class="fecha"
+							placeholder="Fecha de nacimiento">
+					</p>
+					<p>
+
+						<input type="file" name="img" id="contraseña" class="pwd" pattern=".{6,}" placeholder="Imagen"
+							required>
+					</p>
+					<p>
+
+						<input type="password" name="contraseña" id="contraseña" class="pwd" pattern=".{6,}"
+							placeholder="Contraseña" required minlength="3">
+					</p>
+					<p class="checkbox">
+						<strong class="rec-register">Recordame</strong> <input type="checkbox" name="remember" required>
+					</p>
+					<br />
+					<br />
+					<p><input class="submit" type="submit" value="Register"></p>
+
+				</form>
+				<div class="container-register-extra">
+					<ul class="login-grid">
+						<li class="login-extra"> Ya tenes una cuenta?</li>
+
+						<li class="login-extra"><a href="/index/login"> Ingresá aquí </a></li>
+					</ul>
+				</div>
+
+			</div>
 		</div>
+	</div>
 
 
 	<!-- footer -->
-<%- include('../views/partials/footer') %>
-<!-- /footer -->
+	<%- include('../views/partials/footer') %>
+	<!-- /footer -->
 </body>
 
 </html>
