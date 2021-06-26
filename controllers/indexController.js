@@ -136,7 +136,7 @@ const controlador = {
                         usuario: resultado,
                     })
                 } else {
-                    res.render('index', {
+                    res.render('profile', {
                         error: "No existe el perfil: "
                     });
                 }
@@ -173,10 +173,10 @@ const controlador = {
             imagen: req.file.filename
         }, {
             where: {
-                id: req.body.id //tengo que pasar el id hidden en el form o solo asi accedo
+                id: req.body.id 
             }
         }).then(resultado => {
-            res.redirect('/profile' + resultado.id)
+            res.redirect('/index/profile/' + req.body.id)
         });
     //}
 //})
