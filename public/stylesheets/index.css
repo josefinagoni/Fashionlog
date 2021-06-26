@@ -831,6 +831,10 @@ h2.titulo{
   font-size: large;
 
 }
+.trashcan{
+  display: block;
+  color: black;
+}
 
 input.email, input.pwd, input.submit, input.nombre, input.fecha , input.image , input.descripcion, input.dni{
   display:block;
