@@ -101,9 +101,9 @@ const controlador = {
     },
     borrarComentario: (req, res) => {
         db.Comentario.destroy({
-            where: {
+            where: [{
                 id: req.body.id
-            }
+            }]
         }).then(resultado => {
             res.redirect('/index/')
         })
