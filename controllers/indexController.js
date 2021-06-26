@@ -105,7 +105,7 @@ const controlador = {
                 id: req.body.id
             }
         }).then(resultado => {
-            res.redirect('/index')
+            res.redirect('/index/')
         })
 
 
