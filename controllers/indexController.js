@@ -227,7 +227,7 @@ const controlador = {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
          if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.file) {
-           errors.message = "hay que llenar todos los campos"
+           errors.message = "Hay que llenar todos los campos"
              res.locals.errors = errors
              return res.render("register")
          };
