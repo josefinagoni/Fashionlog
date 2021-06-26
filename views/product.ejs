@@ -50,6 +50,15 @@
 										<strong> <a href="/index/profile/<%= element.usuario.id %>" style="text-transform: capitalize;"> <%= element.usuario.nombre %> : </a> </strong>
 										<%= element.texto %> </p>
 										<p> <%= element.createdAt %> </p>
+										<% if (logueado &&  miUsuario.id == producto.comentario.usuario_id) { %>
+											<p>
+												<form action="/index/delete-comentario" method="POST">
+													<input type="hidden" name="id" value="<%= producto.id %>" class="delete-input">
+													<!-- <input type="submit" value="Borrar"> -->
+													<button class="button"><i class="far fa-trash-alt trashcan"></i></button>
+												</form>
+											</p>
+											<% } %>
 								</div>
 							</article>
 						<% }) %>
