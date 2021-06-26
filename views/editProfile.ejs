@@ -2,13 +2,14 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
+
 <body class="edit-background">
 	<!-- Header -->
 	<% if(!logueado) { %>
-		<%- include('../views/partials/header') %>
-		<% } else { %>
-		<%- include('../views/partials/headerlog') %>	
-		<% } %>
+	<%- include('../views/partials/header') %>
+	<% } else { %>
+	<%- include('../views/partials/headerlog') %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -22,20 +23,20 @@
 			<form class="container-form-edit" action="" method="POST" enctype="multipart/form-data">
 				<h2 class="titulo">EDITA TU PERFIL</h2>
 				<p>
-					
-					<input type="text" name="nombre" id="nombre" class="nombre"placeholder="nombre completo"> 
+
+					<input type="text" name="nombre" id="nombre" class="nombre" placeholder="nombre completo">
 				</p>
 				<p>
-					
-					<input type="email" name="email" id="mail" class="email"placeholder="EMAIL" required> 
+
+					<input type="email" name="email" id="mail" class="email" placeholder="EMAIL" required>
 				</p>
 				<p>
-					
-					<input type="dni" name="dni" id="dni" class="dni"placeholder="DNI" required> 
+
+					<input type="dni" name="dni" id="dni" class="dni" placeholder="DNI" required>
 				</p>
 				<p>
-					
-					<input type="date" name="fechanac" id="fechanac" class="fecha" placeholder="Fecha de nacimiento" > 
+
+					<input type="date" name="fechanac" id="fechanac" class="fecha" placeholder="Fecha de nacimiento">
 				</p>
 				<p>
 					
@@ -57,12 +58,12 @@
 				
 			</form>
 
+	</div> </div>
 
+			<!-- footer -->
+			<%- include('../views/partials/footer') %>
+			<!-- /footer -->
 
-	<!-- footer -->
-	<%- include('../views/partials/footer') %>
-	<!-- /footer -->
-	
 </body>
 
 </html>
