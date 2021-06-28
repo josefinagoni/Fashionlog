@@ -2,7 +2,6 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs')
 
-//const productos = require('../productos/infoProducts')
 const controlador = {
 
     index: (req, res) => {
@@ -36,8 +35,6 @@ const controlador = {
                     res.render('index', {
                         productos: resultado,
                         error: null,
-                        //usuario: resultado.usuario,
-                        //comentario: resultado.comentario,
                         productos2: resultado2,
 
                     });
@@ -50,9 +47,9 @@ const controlador = {
                     error: "Error de conexion"
                 });
             });
-        // .catch(error){console.log(error)}
+        
 
-        // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
+        
 
     },
     product: (req, res) => {
@@ -92,12 +89,12 @@ const controlador = {
     productComentario: (req, res) => {
         db.Comentario.create({
                 texto: req.body.comentario,
-                usuario_id: req.session.usuario.id, //chequear validar con condicional de solo si estas logueado
-                producto_id: req.body.id // ?? para sacarlo de en que producto estamos va por ruta
+                usuario_id: req.session.usuario.id, 
+                producto_id: req.body.id 
 
 
             }).then(resultado => {
-                res.redirect('/index/product/' + req.body.id); // a donde registro el id y ruta 
+                res.redirect('/index/product/' + req.body.id); 
             })
             .catch((error) => {
                 res.render('error', {
@@ -221,7 +218,7 @@ const controlador = {
 
 
                 }).then(productoCreado => {
-                    res.redirect('/index/product/' + productoCreado.id) ///product/'+ productoCreado.id); ver si dirige bien
+                    res.redirect('/index/product/' + productoCreado.id) 
                 });
             }
         })
