@@ -54,6 +54,7 @@
 									</strong>
 									<%= element.texto %> </p>
 								<p> <%= element.createdAt %> </p>
+								<% if (logueado &&  miUsuario.id == element.usuario.id) { %>
 
 								<p>
 									<form action="/index/delete-comentario" method="POST">
@@ -63,6 +64,7 @@
 									</form>
 									
 								</p>
+								<% } %>
 
 							</div>
 						</article>
