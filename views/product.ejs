@@ -28,7 +28,7 @@
 			<p class="divider">|</p>
 			<p>
 				<form action="/index/delete-product" method="POST">
-					<input type="hidden" name="id" value="<%= producto.id %>" class="delete-input">
+					<input type="hidden" name="id" value="<%= producto.id%>" class="delete-input">
 					<!-- <input type="submit" value="Borrar"> -->
 					<button class="button"><i class="far fa-trash-alt trashcan"></i></button>
 				</form>
@@ -54,16 +54,18 @@
 									</strong>
 									<%= element.texto %> </p>
 								<p> <%= element.createdAt %> </p>
+								<% if (logueado &&  miUsuario.id == element.usuario.id) { %>
 
 								<p>
 									<form action="/index/delete-comentario" method="POST">
-										<input type="hidden" name="id" value="<%= producto.comentario.id %>"
-											class="delete-input">
+										<input type="hidden" name="id"  value="<%= element.id %>" class="delete-input">
 										<!-- <input type="submit" value="Borrar"> -->
-										<button type="submit" class="button"><i class="far fa-trash-alt trashcan"></i></button>
+										<button class="button" type="submit"><i class="far fa-trash-alt trashcan"></i></button>
 									</form>
+									
 								</p>
-								
+								<% } %>
+
 							</div>
 						</article>
 						<% }) %>

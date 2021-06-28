@@ -13,7 +13,9 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-            order: [["createdAt", "DESC"]]
+            order: [
+                ["createdAt", "DESC"]
+            ]
         };
         const filtro2 = {
             include: [{
@@ -21,25 +23,27 @@ const controlador = {
             }, {
                 association: 'comentario'
             }],
-            order: [["createdAt", "ASC"]]
+            order: [
+                ["createdAt", "ASC"]
+            ]
         };
-        
-        
-        db.Producto.findAll(filtro).then(resultado => {
-            db.Producto.findAll(filtro2).then(resultado2 => {
-                
 
-                res.render('index', {
-                    productos: resultado,
-                    error: null,
-                    //usuario: resultado.usuario,
-                    //comentario: resultado.comentario,
-                    productos2: resultado2,
-             
-                });
+
+        db.Producto.findAll(filtro).then(resultado => {
+                db.Producto.findAll(filtro2).then(resultado2 => {
+
+
+                    res.render('index', {
+                        productos: resultado,
+                        error: null,
+                        //usuario: resultado.usuario,
+                        //comentario: resultado.comentario,
+                        productos2: resultado2,
+
+                    });
+                })
             })
-        })
-        
+
             .catch(error => {
                 console.log("Error de conexion: " + error.message);
                 res.render('index', {
@@ -58,11 +62,13 @@ const controlador = {
                 include: [{
                     association: 'usuario'
                 }]
-                
+
             }, {
                 association: 'usuario'
             }],
-            order: [["comentario","createdAt", "DESC"]]
+            order: [
+                ["comentario", "createdAt", "DESC"]
+            ]
         }
         db.Producto.findByPk(req.params.id, filtro).then(resultado => {
                 if (resultado) {
@@ -79,7 +85,7 @@ const controlador = {
             })
             .catch((error) => {
                 console.log(error)
-                
+
             });
 
     },
@@ -101,11 +107,11 @@ const controlador = {
     },
     borrarComentario: (req, res) => {
         db.Comentario.destroy({
-            where: {
+            where: [{
                 id: req.body.id
-            }
+            }]
         }).then(resultado => {
-            res.redirect('/index')
+            res.redirect('/index/')
         })
 
 
@@ -123,7 +129,7 @@ const controlador = {
         const filtro = {
             include: [{
                 association: 'productos',
-                include:[{
+                include: [{
                     association: "comentario"
                 }]
             }, {
@@ -147,23 +153,23 @@ const controlador = {
             });
     },
     editProfile: (req, res) => {
-        let passEncriptada = bcrypt.hashSync(req.body.contraseña); 
+        let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         //let errors = {}
         //if (!req.body.nombre || !req.email) {
-              //errors.message = "Debe igresar su nombre y su email"
-              //  res.locals.errors = errors
-                //return res.render("editProfile")
-           // };
+        //errors.message = "Debe igresar su nombre y su email"
+        //  res.locals.errors = errors
+        //return res.render("editProfile")
+        // };
         //db.Usuario.findOne({
-          //  where: {
-              //  nombre: req.body.email
-               // }
-           // }).then(resultado => {
-               // if (resultado) {
-                  //  errors.message = "El email ya ha sido utilizado"
-                 //   res.locals.errors = errors
-                    //return res.render("editProfile")
-               //  }else{
+        //  where: {
+        //  nombre: req.body.email
+        // }
+        // }).then(resultado => {
+        // if (resultado) {
+        //  errors.message = "El email ya ha sido utilizado"
+        //   res.locals.errors = errors
+        //return res.render("editProfile")
+        //  }else{
         db.Usuario.update({
             nombre: req.body.nombre,
             nacimiento: req.body.fechanac,
@@ -173,13 +179,13 @@ const controlador = {
             imagen: req.file.filename
         }, {
             where: {
-                id: req.body.id 
+                id: req.body.id
             }
         }).then(resultado => {
             res.redirect('/index/profile/' + req.body.id)
         });
-    //}
-//})
+        //}
+        //})
     },
     vistaEditProfile: (req, res) => {
         db.Usuario.findByPk(req.params.id).then(resultado => {
@@ -192,28 +198,28 @@ const controlador = {
     addProduct: (req, res) => {
         let errors = {}
         if (!req.body.nombre || !req.file || !req.body.descripcion) {
-              errors.message = "Debe completar todos los campos para crear un producto"
-                res.locals.errors = errors
-                return res.render("addProduct")
-            };
+            errors.message = "Debe completar todos los campos para crear un producto"
+            res.locals.errors = errors
+            return res.render("addProduct")
+        };
 
         db.Producto.findOne({
             where: {
                 nombre: req.body.nombre
-                }
-             }).then(resultado => {
-                if (resultado) {
-                   errors.message = "El nombre del producto ya ha sido utilizado"
-                   res.locals.errors = errors
-                   return res.render("addProduct")
-                }else{
-                    db.Producto.create({
+            }
+        }).then(resultado => {
+            if (resultado) {
+                errors.message = "El nombre del producto ya ha sido utilizado"
+                res.locals.errors = errors
+                return res.render("addProduct")
+            } else {
+                db.Producto.create({
                     nombre: req.body.nombre,
                     imagen: req.file.filename,
                     descripcion: req.body.descripcion,
-                    usuario_id: req.session.usuario.id 
-        
-        
+                    usuario_id: req.session.usuario.id
+
+
                 }).then(productoCreado => {
                     res.redirect('/index/product/' + productoCreado.id) ///product/'+ productoCreado.id); ver si dirige bien
                 });
@@ -226,22 +232,22 @@ const controlador = {
     registerCreateUser: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
-         if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.file) {
-           errors.message = "Hay que llenar todos los campos"
-             res.locals.errors = errors
-             return res.render("register")
-         };
+        if (!req.body.nombre || !req.body.fechanac || !req.body.email || !req.body.contraseña || !req.body.dni || !req.file) {
+            errors.message = "Hay que llenar todos los campos"
+            res.locals.errors = errors
+            return res.render("register")
+        };
 
-         db.Usuario.findOne({
+        db.Usuario.findOne({
             where: {
                 email: req.body.email
             }
-         }).then(resultado => {
-             if (resultado) {
+        }).then(resultado => {
+            if (resultado) {
                 errors.message = "este mail ya fue usado"
                 res.locals.errors = errors
                 return res.render("register")
-             }else {
+            } else {
                 db.Usuario.create({
                     nombre: req.body.nombre,
                     nacimiento: req.body.fechanac,
@@ -262,8 +268,8 @@ const controlador = {
                     }
                     res.redirect('/index')
                 })
-             }
-         })
+            }
+        })
 
 
     },
@@ -275,7 +281,7 @@ const controlador = {
         }
         // Buscamos el usuario que deberia ser unico
         db.Usuario.findOne(filtro).then(usuario => {
-            if (usuario  && bcrypt.compareSync(req.body.contraseña, usuario.contrasena)  ) {
+            if (usuario && bcrypt.compareSync(req.body.contraseña, usuario.contrasena)) {
                 req.session.usuario = {
                     id: usuario.id,
                     nombre: usuario.nombre,
@@ -290,7 +296,7 @@ const controlador = {
 
             } else {
                 res.render('login', {
-                 error: "El mail o la contrseña son incorrectos"
+                    error: "El mail o la contrseña son incorrectos"
                 })
             }
 
@@ -317,14 +323,14 @@ const controlador = {
             nombre: req.body.nombre,
             imagen: req.file.filename,
             descripcion: req.body.descripcion,
-            }, {
+        }, {
             where: {
                 id: req.body.id
             }
         }).then(resultado => {
             res.redirect('/index/product/' + req.body.id)
         });
-    
+
     },
     deleteProduct: (req, res) => {
         db.Producto.destroy({
