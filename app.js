@@ -31,8 +31,7 @@ app.use(session( {
 	saveUninitialized: true
 }));
 
-// Leer la cookie y loguear al usuario, si no esta logueado (no esta cargado en la sesion)
-
+// Leer la cookie 
 const db = require('./database/models');
 app.use(function(req, res, next) {
   if(req.cookies.userId && !req.session.usuario) {
@@ -42,7 +41,7 @@ app.use(function(req, res, next) {
         nombre: resultado.nombre,
         imagen: resultado.imagen
     };
-      //ver si mail esta bien
+      
       return next();
     });
   } else {
@@ -50,8 +49,7 @@ app.use(function(req, res, next) {
   }}
 );
 
-// Cargamos variables en locals, para que puedan ser usadas en todas las vistas (por ej, logueado)
-
+// Cargamos variables en locals
 app.use(function(req, res, next) {
   if(req.session.usuario){
     res.locals = {

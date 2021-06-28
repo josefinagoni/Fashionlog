@@ -268,7 +268,6 @@ const controlador = {
 
     },
     loginValidate: (req, res) => {
-        // Filtramos el usuario a traves de un campo que sea UNICO en la base de datos
         const filtro = {
             where: {
                 email: req.body.email
@@ -276,8 +275,6 @@ const controlador = {
         }
         // Buscamos el usuario que deberia ser unico
         db.Usuario.findOne(filtro).then(usuario => {
-            // Comparamos la contraseña ingresada en el login (req.body.pass)
-            // con la que ingresada en el registro (usuario.pass)
             if (usuario  && bcrypt.compareSync(req.body.contraseña, usuario.contrasena)  ) {
                 req.session.usuario = {
                     id: usuario.id,
@@ -291,7 +288,6 @@ const controlador = {
                 }
                 res.redirect('/index')
 
-                // En caso de que haya seleccionado recodarme, guardamos una cookie
             } else {
                 res.render('login', {
                  error: "El mail o la contrseña son incorrectos"

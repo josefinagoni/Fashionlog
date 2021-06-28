@@ -2,24 +2,26 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('../views/partials/head') %>
+
 <body>
 	<!-- Header -->
 	<% if(!logueado) { %>
-		<%- include('../views/partials/header') %>
-		<% } else { %>
-		<%- include('../views/partials/headerlog') %>	
-		<% } %>
+	<%- include('../views/partials/header') %>
+	<% } else { %>
+	<%- include('../views/partials/headerlog') %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title" style="text-transform: capitalize;"> <%= producto.nombre%></h2> 
+			<h2 class="products-title" style="text-transform: capitalize;"> <%= producto.nombre%></h2>
 			<p class="product-detail-description"> de
-				<a href="/index/profile/<%= producto.usuario.id%>" style="text-transform: capitalize;"> <%= producto.usuario.nombre%></a>
+				<a href="/index/profile/<%= producto.usuario.id%>" style="text-transform: capitalize;">
+					<%= producto.usuario.nombre%></a>
 			</p>
 			<% if (logueado &&  miUsuario.id == producto.usuario.id) { %>
-		
+
 			<p class="product-detail-description">
 				<a href="/index/edit-product/<%= producto.id %>" class="edit">Editar producto</a>
 			</p>
@@ -43,59 +45,66 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<% producto.comentario.forEach(element => { %>
-							<article>
-								<img src="/images/users/<%= element.usuario.imagen %>" alt="">
-								<div class="data">
-									<p class="user">
-										<strong> <a href="/index/profile/<%= element.usuario.id %>" style="text-transform: capitalize;"> <%= element.usuario.nombre %> : </a> </strong>
-										<%= element.texto %> </p>
-										<p> <%= element.createdAt %> </p>
-										
-											<p>
-												<form action="/index/delete-comentario" method="POST">
-													<input type="hidden" name="id" value="<%= producto.comentario.id %>" class="delete-input">
-													<!-- <input type="submit" value="Borrar"> -->
-													<button class="button"><i class="far fa-trash-alt trashcan"></i></button>
-												</form>
-											</p>
-											
-								</div>
-							</article>
+						<article>
+							<img src="/images/users/<%= element.usuario.imagen %>" alt="">
+							<div class="data">
+								<p class="user">
+									<strong> <a href="/index/profile/<%= element.usuario.id %>"
+											style="text-transform: capitalize;"> <%= element.usuario.nombre %> : </a>
+									</strong>
+									<%= element.texto %> </p>
+								<p> <%= element.createdAt %> </p>
+
+								<p>
+									<form action="/index/delete-comentario" method="POST">
+										<input type="hidden" name="id" value="<%= producto.comentario.id %>"
+											class="delete-input">
+										<!-- <input type="submit" value="Borrar"> -->
+										<button type="submit" class="button"><i class="far fa-trash-alt trashcan"></i></button>
+									</form>
+								</p>
+								
+							</div>
+						</article>
 						<% }) %>
 
-								
-							
-						
+
+
+
 
 					</section>
 					<% if(logueado) { %>
 					<form class="form" action="/index/product/comentario" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario"
+							name="comentario">
 						<p>
-					
-							<input type="hidden" name="id" id="nombre" class="nombre" placeholder="nombre del producto" value="<%= producto.id %>"> 
+
+							<input type="hidden" name="id" id="nombre" class="nombre" placeholder="nombre del producto"
+								value="<%= producto.id %>">
 						</p>
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 
 					</form>
 					<% } else { %>
-						<form class="form" action="/index/login" method="GET">
-							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
-							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-						</form>
+					<form class="form" action="/index/login" method="GET">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario"
+							name="comentario">
+						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+					</form>
 					<% } %>
 				</div>
-					
-					<hr>
-				</div>
+
+				<hr>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- /product detail -->
 
 	<!-- footer -->
-<%- include('../views/partials/footer') %>
+	<%- include('../views/partials/footer') %>
 	<!-- /footer -->
 
-</body>	
+</body>
+
 </html>
