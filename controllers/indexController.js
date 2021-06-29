@@ -151,6 +151,7 @@ const controlador = {
     },
     editProfile: (req, res) => {
         let passEncriptada = bcrypt.hashSync(req.body.contraseña);
+        let errors = {};
         db.Usuario.findOne({
           where: {
           nombre: req.body.email
